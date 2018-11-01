@@ -989,6 +989,66 @@ body{
 }
 
 
+.btn-cancel-modal{
+    background:none;
+    color: #8dc63f;
+}
+
+.btn-save-modal {
+    color: #fff;
+    background: #8dc63f;
+}
+
+
+
+
+/**
+**
+**
+**
+** Address modal **/
+.change-address-modal .address-input{
+    margin: 20px 15px;
+}
+
+
+.change-address-modal .address-input input{
+    padding: 30px 20px;
+    border: 1px  #aaaaaa;
+}
+
+
+
+/**
+**
+**
+**
+** Payment modal **/
+
+.change-payment-modal .payment-input input{
+    padding: 30px 20px;
+    border: 1px solid #aaaaaa;
+    color: #cccccc;
+    text-align: center;
+}
+
+
+.change-payment-modal .border-custom {
+    border: 1px solid #aaaaaa;
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 4px;
+    color: #cccccc;
+}
+
+.change-payment-modal .no-border-input input{
+    padding: 30px 20px;
+    border: none;
+    box-shadow: none;
+}
+
+
+
 /**
 **
 **
@@ -1105,6 +1165,22 @@ body{
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
     background-color: #6dc63f;
 }
+
+.modal-backdrop {
+    z-index: 100000 !important;
+}
+
+.modal {
+    z-index: 100001 !important;
+}
+
+
+.custom-title {
+    color: #757575;
+    text-align: center;
+}
+
+
 
 @media(min-width: 768px) {
     .col-md-1{
