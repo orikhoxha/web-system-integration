@@ -356,9 +356,7 @@ body{
 
 /* order tile */
 
-.orders .order {
-    height: 300px;
-}
+
 
 
 .orders .order-body {
@@ -430,6 +428,29 @@ body{
 **
 ** Cart */
 
+.cart-container {
+    min-height: 500px;
+    padding-left: 0;
+    padding-right: 0;
+    position: fixed;
+    right: 0;
+}
+
+
+.cart-header {
+    padding: 5px;
+    background-color: rgba(141,198,63, 0.20);
+    color: #8dc63f;
+    border: 1px dotted #8dc63f;
+    border-radius: 2px;
+}
+
+
+
+.cart-header .num-items {
+    font-weight: bold;
+}
+
 .cart-item {
     height:50px;
 }
@@ -451,6 +472,32 @@ body{
     color:#fff;
     text-align: center;
 }
+
+.cart-container .cart-footer {
+    padding: 20px;
+    background-color: rgba(141,198,63, 0.20);
+    color: #8dc63f;
+    border: 1px dotted #8dc63f;
+    border-radius: 2px;
+}
+
+
+.minimum-warning {
+    color: #757575;
+}
+
+.cart-footer .subtotal-cart {
+    color: #8dc63f;
+    font-size: 20px;
+}
+
+.subtotal-cart > span {
+    font-weight:bold;
+}
+
+
+
+
 
 
 
@@ -528,6 +575,24 @@ body{
 /*
 **
 **
+** Department Browse */
+.custom-link-toggle {
+    margin-top:10px;
+    margin-bottom: 10px;
+}
+
+.custom-link-toggle .link {
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.custom-dropdown-department {
+    width: 250px;
+}
+
+/*
+**
+**
 **
 ** Customer orders */
 /* Sidebar nav */
@@ -561,11 +626,12 @@ body{
 }
 
 /* Recent orders */
-.orders {
-    height: 300px;
-    margin-top: 20px;
-    box-shadow: 5px 0 40px rgba(0,0,0, .2);
+
+.settings {
+    padding-left: 0;
+    padding-right: 0;
 }
+
 
 .orders .orders-date {
     padding:5px;
@@ -578,6 +644,99 @@ body{
 .orders .orders-date h5 {
     font-weight: 700;
 }
+
+.price-total-wrap {
+    margin-top: 48px;
+}
+
+.price-total-wrap .price-label {
+    font-weight: lighter;
+}
+
+.price-total-wrap .price {
+    font-weight: bold;
+}
+
+.price-total-wrap .row{
+    margin-bottom: 10px;
+}
+
+.price-total-wrap .price.total {
+    color: #8dc63f;
+    font-size: 16px;
+}
+
+
+/*
+**
+**
+**
+** Recent order status */
+.order-status {
+    padding:10px;
+}
+
+.order-status p {
+    color: #b3b3b3;
+}
+
+.order-status .date-time-arrives {
+    color: #8dc63f;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.order-status .custom-line {
+    position: absolute;
+    top: 45px;
+    left: 56px;
+    background-color: #8dc63f;
+    height: 10px;
+    width: 159px;
+}
+
+.order-status .order-custom-col {
+    padding-left: 0;
+}
+
+
+.order-status .complete i {
+    color: #8dc63f;
+}
+
+.order-status .complete span {
+    background-color: #8dc63f;
+}
+
+.order-status .processing p {
+    color: #000000;
+    font-weight: bold;
+}
+
+.order-status .processing span {
+    background-color: #eeeeee;
+}
+
+.order-status .processing i {
+    color: #8dc63f;
+}
+
+
+.order-status .disabled span {
+    background-color: #eeeeee;
+}
+
+.order-status .disabled i {
+    color: #eeeeee;
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -611,7 +770,7 @@ body{
     margin: 20px 0;
 }
 
-.account-labels .body p {
+.account-labels .body p  {
     margin: 10px 0;
     font-size: 18px;
     font-weight:400;
@@ -621,7 +780,7 @@ body{
     margin-top:80px;
 }
 
-.account-labels .body.change p:nth-child(odd) {
+.account-labels .body.change a:nth-child(odd) {
     color: #8dc63f;
     font-weight: bold;
 }
@@ -656,9 +815,9 @@ body{
     margin-top: 30px;
 }
 
-.filters-input .form-inline > .form-group, .btn{
+/*.filters-input .form-inline > .form-group, .btn{
     margin-left: 50px;
-}
+}*/
 
 .filters-input input, select {
     border-color: #aaaaaa;
@@ -812,6 +971,14 @@ body{
 }
 
 
+.btn-checkout {
+    background-color:#f36f20;
+    color: #fff;
+    padding: 10px;
+    font-size: 20px;
+}
+
+
 
 
 /*
@@ -890,6 +1057,10 @@ body{
     opacity: 0.2;
 }
 
+.favourite {
+    opacity: 1;
+}
+
 .custom-heart:hover {
     opacity: 1;
 }
@@ -905,7 +1076,7 @@ body{
 }
 
 
-.custom-check {
+.custom-check, .custom-circle {
     font-size: 40px;
     color:#8dc63f;
 }
@@ -924,6 +1095,10 @@ body{
 
 .full-height {
     height:100%;
+}
+
+.full-width {
+    width: 100%;
 }
 
 .row-custom {
@@ -1005,6 +1180,17 @@ body{
 /**
 **
 **
+** Common modal components */
+.custom-input-modal input {
+    padding: 30px 20px;
+    border: 1px solid #aaaaaa;
+    color: #cccccc;
+    text-align: center;
+}
+
+/**
+**
+**
 **
 ** Address modal **/
 .change-address-modal .address-input{
@@ -1046,6 +1232,10 @@ body{
     border: none;
     box-shadow: none;
 }
+
+
+
+
 
 
 
