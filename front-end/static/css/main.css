@@ -1174,7 +1174,11 @@ body{
     background: #8dc63f;
 }
 
-
+.btn-remove-modal {
+    background: none;
+    color: #e6003d;
+    font-weight: bold;
+}
 
 
 /**

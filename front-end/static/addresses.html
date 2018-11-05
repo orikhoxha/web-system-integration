@@ -79,11 +79,14 @@
                 <div class="account-settings">
                     <div class="payment-header">
                         <div class="visa-ending float-left">
-                            <span class="main">Visa 1234</span>
-                            <span class="ending">- ending in 1234</span>
+                            <span class="main">11922 Riverhills Drive, Temple Terrace, FL - 60616</span>
+                            <!--<span class="ending">- ending in 1234</span>-->
                         </div>
                         <div class="card-edit float-right">
-                            <a href="" class="btn-load-more" type="button"  data-toggle="modal" data-target=".remove-payment-modal">
+                            <a href="" class="btn-load-more" type="button"  data-toggle="modal" data-target=".add-change-address-modal">
+                                <i class="fas fa-pencil-alt custom-pencil"></i>
+                            </a>
+                            <a href="" class="btn-load-more" type="button"  data-toggle="modal" data-target=".remove-address-modal">
                                 <i class="fas fa-minus-circle custom-minus"></i>
                             </a>
                             <i class="fas fa-star  custom-star"></i>
@@ -92,7 +95,7 @@
                     </div>
                     <hr>
                     <div class="payment-body text-center">
-                        <a href="" class="btn-load-more" type="button"  data-toggle="modal" data-target=".add-payment-modal">New Card</a>
+                        <a href="" class="btn-load-more" type="button"  data-toggle="modal" data-target=".add-change-address-modal">New Address</a>
                     </div>
                 </div>
             </main>
@@ -101,8 +104,27 @@
 </div>
 
 
-<!-- Add payment -->
-<div class="modal fade bs-example-modal-md add-payment-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+
+<!-- Remove payment -->
+<div class="modal fade bs-example-modal-md remove-address-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title custom-title" id="myLargeModalLabel">Are you sure you want to remove this address?</h4>
+            </div>
+            <form action="">
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-cancel-modal" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-remove-modal">Delete address</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Add, Change address -->
+<div class="modal fade bs-example-modal-md add-change-address-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
     <div class="modal-dialog modal-md" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -112,64 +134,36 @@
             <form action="">
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group custom-input-modal">
-                                <input type="text" class="form-control" placeholder="Email" id="address1">
+                        <div class="col">
+                            <div class="form-group address-input">
+                                <input type="text" class="form-control" placeholder="Address Line 1" id="address1">
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group custom-input-modal">
-                                <input type="text" class="form-control" placeholder="Phone" id="address2">
+                            <div class="form-group  address-input">
+                                <input type="text" class="form-control" placeholder="Address Line 2(Optional)" id="address2">
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group custom-input-modal">
-                                <input type="text" class="form-control" placeholder="Card Number" id="address2">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Zip Code" id="address2">
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <p>Chicago, IL</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group address-input">
+                                <input type="text" class="form-control" placeholder="Instructions for delivery(optional)" id="address1">
                             </div>
                         </div>
                     </div>
-                    <div class="row border-custom">
-                        <div class="col-md-4">
-                            <div class="form-group no-border-input">
-                                <input type="text" class="form-control" placeholder="Name on Card" id="address1">
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group no-border-input">
-                                <input type="text" class="form-control" placeholder="MM/YY" id="address1">
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group no-border-input">
-                                <input type="text" class="form-control" placeholder="CVC" id="address1">
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-cancel-modal" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-save-modal">Save changes</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-<!-- Remove payment -->
-<div class="modal fade bs-example-modal-md remove-payment-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-    <div class="modal-dialog modal-md" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                <h4 class="modal-title custom-title" id="myLargeModalLabel">Are you sure you want to remove this payment?</h4>
-            </div>
-            <form action="">
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-cancel-modal" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-remove-modal">Delete payment</button>
                 </div>
             </form>
         </div>

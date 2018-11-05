@@ -20,18 +20,48 @@
       <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="706" column="30" lean-forward="true" selection-start-line="706" selection-start-column="30" selection-end-line="706" selection-end-column="30" />
+            <state relative-caret-position="595">
+              <caret line="1182" column="0" lean-forward="true" selection-start-line="1182" selection-start-column="0" selection-end-line="1182" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="customer_recent_orders.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="customer_recent_orders.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/customer_recent_orders.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="420" column="44" lean-forward="false" selection-start-line="420" selection-start-column="44" selection-end-line="420" selection-end-column="44" />
+            <state relative-caret-position="488">
+              <caret line="481" column="47" lean-forward="true" selection-start-line="481" selection-start-column="47" selection-end-line="481" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addresses.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/addresses.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="581">
+              <caret line="118" column="89" lean-forward="true" selection-start-line="118" selection-start-column="89" selection-end-line="118" selection-end-column="89" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="payment_methods.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/payment_methods.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="191">
+              <caret line="160" column="0" lean-forward="false" selection-start-line="160" selection-start-column="0" selection-end-line="176" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="checkout_final.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/checkout_final.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="415" column="6" lean-forward="true" selection-start-line="370" selection-start-column="0" selection-end-line="415" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -128,7 +158,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>change</find>
       <find>change-payment</find>
       <find>payment-input</find>
       <find>customer order</find>
@@ -158,6 +187,7 @@
       <find>recent order</find>
       <find>custom-line</find>
       <find>image-container</find>
+      <find>btn-cancel-modal</find>
     </findStrings>
     <replaceStrings>
       <replace>fas fa-heart</replace>
@@ -181,16 +211,17 @@
         <option value="$PROJECT_DIR$/employee_list.html" />
         <option value="$PROJECT_DIR$/product_list.html" />
         <option value="$PROJECT_DIR$/customer_list.html" />
-        <option value="$PROJECT_DIR$/payment_methods.html" />
         <option value="$PROJECT_DIR$/checkout.html" />
         <option value="$PROJECT_DIR$/account_settings.html" />
-        <option value="$PROJECT_DIR$/checkout_final.html" />
         <option value="$PROJECT_DIR$/customer_orders.html" />
         <option value="$PROJECT_DIR$/main.html" />
         <option value="$PROJECT_DIR$/department_browse.html" />
         <option value="$PROJECT_DIR$/favourite_items.html" />
+        <option value="$PROJECT_DIR$/checkout_final.html" />
+        <option value="$PROJECT_DIR$/payment_methods.html" />
         <option value="$PROJECT_DIR$/css/main.css" />
         <option value="$PROJECT_DIR$/customer_recent_orders.html" />
+        <option value="$PROJECT_DIR$/addresses.html" />
       </list>
     </option>
   </component>
@@ -296,12 +327,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1539568617049</updated>
-      <workItem from="1539568618216" duration="151138000" />
+      <workItem from="1539568618216" duration="155097000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="151138000" />
+    <option name="totallyTimeSpent" value="155097000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -467,14 +498,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/payment_methods.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="81" column="36" lean-forward="true" selection-start-line="81" selection-start-column="36" selection-end-line="81" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/product_list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -533,23 +556,6 @@
         <state relative-caret-position="282">
           <caret line="200" column="22" lean-forward="false" selection-start-line="200" selection-start-column="22" selection-end-line="200" selection-end-column="22" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/checkout_final.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="298" column="54" lean-forward="false" selection-start-line="298" selection-start-column="54" selection-end-line="298" selection-end-column="54" />
-          <folding>
-            <element signature="e#1315#1321#0" expanded="false" />
-            <element signature="e#1321#1327#0" expanded="false" />
-            <element signature="e#1804#1810#0" expanded="false" />
-            <element signature="e#1810#1816#0" expanded="false" />
-            <element signature="e#1914#1920#0" expanded="false" />
-            <element signature="e#1920#1926#0" expanded="false" />
-            <element signature="e#2084#2090#0" expanded="false" />
-            <element signature="e#2090#2096#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -625,14 +631,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="706" column="30" lean-forward="true" selection-start-line="706" selection-start-column="30" selection-end-line="706" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/department_browse.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
@@ -649,10 +647,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="1182" column="0" lean-forward="true" selection-start-line="1182" selection-start-column="0" selection-end-line="1182" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/customer_recent_orders.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="420" column="44" lean-forward="false" selection-start-line="420" selection-start-column="44" selection-end-line="420" selection-end-column="44" />
+        <state relative-caret-position="488">
+          <caret line="481" column="47" lean-forward="true" selection-start-line="481" selection-start-column="47" selection-end-line="481" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/checkout_final.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="415" column="6" lean-forward="true" selection-start-line="370" selection-start-column="0" selection-end-line="415" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/payment_methods.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="160" column="0" lean-forward="false" selection-start-line="160" selection-start-column="0" selection-end-line="176" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addresses.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="581">
+          <caret line="118" column="89" lean-forward="true" selection-start-line="118" selection-start-column="89" selection-end-line="118" selection-end-column="89" />
           <folding />
         </state>
       </provider>
