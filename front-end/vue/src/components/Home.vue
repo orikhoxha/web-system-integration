@@ -13,13 +13,9 @@
 
 <script>
     import Cart from './cart/Cart.vue';
-    import Items from './items/Items.vue';
-    import ItemDetails from './items/ItemDetails.vue';
     export default {
         components: {
            appCart: Cart,
-            appItems: Items,
-            appItemDetails: ItemDetails
         }
     }
 </script>

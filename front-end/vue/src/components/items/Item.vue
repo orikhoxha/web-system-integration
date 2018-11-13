@@ -1,6 +1,7 @@
 <template>
     <div class="col-md-3 col-xs-12 col-sm-4">
-        <div class="panel panel-default text-center panel-hover" style="cursor: pointer" @click="itemSelected">
+        <router-link class="panel panel-default text-center panel-hover" style="cursor: pointer" tag="div" to="/item/3">
+            <a >
             <div class="panel-heading text-right">
                 <i class="fas fa-heart custom-heart"></i>
             </div>
@@ -21,19 +22,17 @@
                 <a href="#" class="product-title text-left">{{item.description}}</a>
                 <button class="btn btn-select-product">Add to Cart</button>
 
-            </div>
-        </div>
+            </div></a>
+        </router-link>
     </div>
 </template>
 
 <script>
+
+
     export default {
         props: ['item'],
-        methods: {
-            itemSelected() {
 
-            }
-        }
     }
 </script>
 
