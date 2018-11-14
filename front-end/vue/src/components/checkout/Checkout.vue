@@ -20,46 +20,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="times">
-                                        <div class="col time">
-                                            <i class="far fa-circle"></i>
-                                            <span >9am - 10am</span>
-                                        </div>
-                                        <div class="col time">
-                                            <i class="far fa-circle"></i>
-                                            <span >9am - 10am</span>
-                                        </div>
-                                        <div class="col time">
-                                            <i class="far fa-circle"></i>
-                                            <span >9am - 10am</span>
-                                        </div>
-                                        <div class="col time">
-                                            <i class="far fa-circle"></i>
-                                            <span >9am - 10am</span>
-                                        </div>
-                                        <div class="col time">
-                                            <i class="far fa-circle"></i>
-                                            <span >9am - 10am</span>
-                                        </div>q
-                                        <div class="col time">
-                                            <i class="dot"></i>
-                                            <span >9am - 10am</span>
-                                        </div>
-                                        <div class="col time">
-                                            <i class="far fa-circle custom-select"></i>
-                                            <span >9am - 10am</span>
-                                        </div>
-                                        <div class="col time">
-                                            <i class="far fa-circle"></i>
-                                            <span >9am - 10am</span>
-                                        </div>
-                                        <div class="col time">
-                                            <i class="far fa-circle"></i>
-                                            <span >9am - 10am</span>
-                                        </div>
-                                        <div class="col time">
-                                            <i class="far fa-circle"></i>
-                                            <span >9am - 10am</span>
-                                        </div>
+                                        <app-checkout-time v-for="hour in hours" :hour="hour"></app-checkout-time>
                                     </div>
                                 </div>
                                 <div class="continue">
@@ -76,6 +37,7 @@
 
 <script>
     import CheckoutDate from  './CheckoutDate.vue';
+    import CheckoutTime from './CheckoutTime.vue';
     export default {
         data() {
             return {
@@ -85,6 +47,21 @@
         },
 
         methods: {
+            setHours() {
+                let hoursMax = 20;
+                let currentHour =  new Date().getHours();
+
+                if(currentHour > hoursMax) return;
+
+                currentHour = currentHour > 9 ? currentHour : 9;
+
+                console.log(currentHour);
+
+                for(let i = currentHour; i <= hoursMax; i++) {
+                    this.hours.push(i);
+                }
+            },
+
             /* Util */
             setDays() {
                 let startDate = new Date();
@@ -120,13 +97,14 @@
             }
         },
 
-
         created() {
-            this.setDays()
+            this.setDays();
+            this.setHours();
         },
 
         components: {
-            appCheckoutDate: CheckoutDate
+            appCheckoutDate: CheckoutDate,
+            appCheckoutTime: CheckoutTime
         }
     }
 </script>
