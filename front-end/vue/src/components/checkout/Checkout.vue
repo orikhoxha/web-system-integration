@@ -24,7 +24,7 @@
                                     </div>
                                 </div>
                                 <div class="continue">
-                                    <button class="btn btn-continue float-right">Continue</button>
+                                    <button class="btn btn-continue float-right" @click="checkoutFinal()">Continue</button>
                                 </div>
                             </div>
                         </div>
@@ -47,6 +47,13 @@
         },
 
         methods: {
+
+            checkoutFinal() {
+                this.$router.push('/checkoutFinal');
+            },
+
+
+            /* Util */
             setHours() {
                 let hoursMax = 20;
                 let currentHour =  new Date().getHours();
@@ -62,7 +69,6 @@
                 }
             },
 
-            /* Util */
             setDays() {
                 let startDate = new Date();
 

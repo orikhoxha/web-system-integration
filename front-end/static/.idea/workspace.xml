@@ -47,14 +47,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="checkout.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="checkout.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/checkout.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="82" column="56" lean-forward="true" selection-start-line="82" selection-start-column="56" selection-end-line="82" selection-end-column="56" />
+            <state relative-caret-position="339">
+              <caret line="141" column="58" lean-forward="true" selection-start-line="141" selection-start-column="58" selection-end-line="141" selection-end-column="58" />
               <folding>
                 <element signature="e#3087#3093#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="checkout_final.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/checkout_final.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="8223">
+              <caret line="459" column="46" lean-forward="false" selection-start-line="459" selection-start-column="46" selection-end-line="459" selection-end-column="46" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -253,12 +263,12 @@
       <updated>1539568617049</updated>
       <workItem from="1539568618216" duration="158279000" />
       <workItem from="1541554863013" duration="1924000" />
-      <workItem from="1541991637408" duration="16541000" />
+      <workItem from="1541991637408" duration="16998000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="176744000" />
+    <option name="totallyTimeSpent" value="177201000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -691,14 +701,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/checkout_final.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="777">
-          <caret line="415" column="6" lean-forward="false" selection-start-line="370" selection-start-column="0" selection-end-line="415" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/payment_methods.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="777">
@@ -757,11 +759,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/checkout.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="82" column="56" lean-forward="true" selection-start-line="82" selection-start-column="56" selection-end-line="82" selection-end-column="56" />
+        <state relative-caret-position="339">
+          <caret line="141" column="58" lean-forward="true" selection-start-line="141" selection-start-column="58" selection-end-line="141" selection-end-column="58" />
           <folding>
             <element signature="e#3087#3093#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/checkout_final.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8223">
+          <caret line="459" column="46" lean-forward="false" selection-start-line="459" selection-start-column="46" selection-end-line="459" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>
