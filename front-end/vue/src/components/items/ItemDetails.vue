@@ -7,7 +7,7 @@
                         <i class="fas fa-heart custom-heart"></i>
                     </div>
                     <div class="panel-body">
-                        <img src="images/sample_image_2.jpg" class="img-article-detail">
+                        <img src="../../assets/sample_image_2.jpg" class="img-article-detail">
                     </div>
                     <div class="panel-footer text-right">
                         <i class="fas fa-search-plus custom-zoom"></i>
@@ -83,7 +83,7 @@
                             <i class="fas fa-heart custom-heart"></i>
                         </div>
                         <div class="panel-body">
-                            <img src="images/sample_image_2.jpg" class="img-article">
+                            <img src="../../assets/sample_image_2.jpg" class="img-article">
                         </div>
                         <div class="panel-footer">
                             <div class="row product-tile">
