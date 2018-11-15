@@ -733,15 +733,6 @@ body{
 }
 
 
-
-
-
-
-
-
-
-
-
 /*
 **
 **
@@ -751,7 +742,6 @@ body{
     height: 700px;
     margin-top: 20px;
     padding: 30px;
-    box-shadow: 5px 0 40px rgba(0,0,0, .2);
 }
 
 .account-settings .account-labels {

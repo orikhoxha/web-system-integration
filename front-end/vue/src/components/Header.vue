@@ -16,7 +16,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
                             <ul class="dropdown-menu custom-dropdown">
                                 <li><a href="#" class="account-dropdown-name">Hi, <span>Orik</span></a></li>
-                                <li><a href="#"><i class="far fa-user-circle"></i>&nbsp;&nbsp;Your Account</a></li>
+                                <router-link to="/account" tag="li"><a><i class="far fa-user-circle"></i>&nbsp;&nbspYour Account</a></router-link>
                                 <li><a href="#"><i class="fas fa-align-justify"></i>&nbsp;&nbsp;Orders</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="#"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Logout</a></li>

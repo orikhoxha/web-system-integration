@@ -57,33 +57,39 @@
             setHours() {
                 let hoursMax = 20;
                 let currentHour =  new Date().getHours();
+                console.log("currenthour******************"  + currentHour);
 
-                if(currentHour > hoursMax) return;
 
                 currentHour = currentHour > 9 ? currentHour : 9;
 
-                console.log(currentHour);
+                currentHour =  9;
 
                 for(let i = currentHour; i <= hoursMax; i++) {
                     this.hours.push(i);
                 }
+
             },
 
             setDays() {
                 let startDate = new Date();
+                let maxIteration  = 5;
 
-                for(let i = 0; i < 5; ++i) {
+                for(let i = 0; i < maxIteration; ++i) {
                     let currentDate = new Date();
                     currentDate.setDate(startDate.getDate() + i);
 
                     let day = currentDate.getDate() === startDate.getDate() ? "Today" : this.getDayString(currentDate.getDay());
+
+                    if (day === "Today" && startDate.getHours() > 20) {
+                        maxIteration += 1;
+                        continue;
+                    }
 
                     let currentDateFormatted = this.convertDate(currentDate);
                     let month = currentDate.toLocaleString("en-us", {month: "long"});
                     this.days.push({date: currentDateFormatted, dayString: day, dayInt: currentDate.getDate() , month: month});
                 }
 
-                console.log(this.days);
             },
 
             getDayString(dayNumber) {

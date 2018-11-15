@@ -12,6 +12,7 @@
 
         methods: {
             formatTime(hour) {
+                console.log("hour: " + hour);
                 return hour + ':00- ' + (hour + 1) + ':00';
             }
         }
