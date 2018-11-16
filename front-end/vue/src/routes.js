@@ -16,6 +16,8 @@ import UserAddresses from './components/user/UserAddresses.vue';
 
 import CustomerOrders from './components/user/customer/order/CustomerOrders.vue';
 
+import CustomerPayments from './components/user/customer/payment/CustomerPayments.vue'
+
 export const routes = [
     { path: '/', component: Home, alias: '/home', children: [
             { path: '/', component: Items},
@@ -30,6 +32,7 @@ export const routes = [
     { path: '/account', component: UserAccount, children: [
             { path: '/', component: UserAccountSettings, alias: '/account/settings'},
             { path: '/userAddresses', component: UserAddresses, alias: '/account/addresses'},
-            { path: '/customerOrders', component: CustomerOrders, alias: '/account/orders'}
+            { path: '/customerOrders', component: CustomerOrders, alias: '/account/orders'},
+            { path: '/payments', component: CustomerPayments, alias: '/account/payments'}
             ]},
 ]

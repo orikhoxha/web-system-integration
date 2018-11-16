@@ -5,6 +5,7 @@
                 <h5>{{order.date}}</h5>
             </div>
         </div>
+        <app-customer-order-status v-if="order.isRecent"></app-customer-order-status>
         <app-customer-order-item v-for="item in order.items" :item="item"></app-customer-order-item>
         <app-customer-order-price :priceDetails="order.priceDetails"></app-customer-order-price>
 
@@ -14,11 +15,13 @@
 <script>
     import CustomerOrderItem from './CustomerOrderItem.vue';
     import CustomerOrderPrice from './CustomerOrderPrice.vue';
+    import CustomerOrderStatus from './CustomerOrderStatus.vue';
     export default {
         props: ['order'],
         components: {
             appCustomerOrderItem: CustomerOrderItem,
-            appCustomerOrderPrice: CustomerOrderPrice
+            appCustomerOrderPrice: CustomerOrderPrice,
+            appCustomerOrderStatus: CustomerOrderStatus
         }
     }
 </script>
