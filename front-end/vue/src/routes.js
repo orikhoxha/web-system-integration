@@ -15,8 +15,9 @@ import UserAccountSettings from './components/user/UserAccountSettings.vue';
 import UserAddresses from './components/user/UserAddresses.vue';
 
 import CustomerOrders from './components/user/customer/order/CustomerOrders.vue';
+import CustomerPayments from './components/user/customer/payment/CustomerPayments.vue';
 
-import CustomerPayments from './components/user/customer/payment/CustomerPayments.vue'
+import CustomerList from './components/user/customer/list/CustomerList.vue';
 
 export const routes = [
     { path: '/', component: Home, alias: '/home', children: [
@@ -33,6 +34,7 @@ export const routes = [
             { path: '/', component: UserAccountSettings, alias: '/account/settings'},
             { path: '/userAddresses', component: UserAddresses, alias: '/account/addresses'},
             { path: '/customerOrders', component: CustomerOrders, alias: '/account/orders'},
-            { path: '/payments', component: CustomerPayments, alias: '/account/payments'}
+            { path: '/payments', component: CustomerPayments, alias: '/account/payments'},
+            { path: '/customers', component: CustomerList, alias: '/account/customers'}
             ]},
 ]
