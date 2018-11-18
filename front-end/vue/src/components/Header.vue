@@ -17,7 +17,7 @@
                             <ul class="dropdown-menu custom-dropdown">
                                 <li><a href="#" class="account-dropdown-name">Hi, <span>Orik</span></a></li>
                                 <router-link to="/account" tag="li"><a><i class="far fa-user-circle"></i>&nbsp;&nbspYour Account</a></router-link>
-                                <li><a href="#"><i class="fas fa-align-justify"></i>&nbsp;&nbsp;Orders</a></li>
+                                <router-link to="/account/orders" tag="li"><a><i class="fas fa-align-justify"></i>&nbsp;&nbsp;Orders</a></router-link>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="#"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Logout</a></li>
                             </ul>
