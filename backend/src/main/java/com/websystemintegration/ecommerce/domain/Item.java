@@ -21,19 +21,28 @@ public class Item implements Serializable {
     @ManyToOne
     @JoinColumn(name="department_id")
     @JsonIgnore
-    private Department shoppingCart;
+    private Department department;
 
+
+    public Double getMeasurement() {
+        return measurement;
+    }
+
+    public void setMeasurement(Double measurement) {
+        this.measurement = measurement;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
 
     @Transient
     private MultipartFile itemImage;
 
-    public Department getShoppingCart() {
-        return shoppingCart;
-    }
-
-    public void setShoppingCart(Department shoppingCart) {
-        this.shoppingCart = shoppingCart;
-    }
 
     public Long getId() {
         return id;
