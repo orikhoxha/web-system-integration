@@ -21,8 +21,8 @@ public class ItemServiceImpl implements ItemService{
     }
 
     @Override
-    public Optional<Item> findOne(Long id) {
-        return itemRepository.findById(id);
+    public Item findOne(Long id) {
+        return itemRepository.findOne(id);
     }
 
     @Override
@@ -32,6 +32,6 @@ public class ItemServiceImpl implements ItemService{
 
     @Override
     public void removeItem(Long id) {
-        itemRepository.deleteById(id);
+        itemRepository.delete(id);
     }
 }

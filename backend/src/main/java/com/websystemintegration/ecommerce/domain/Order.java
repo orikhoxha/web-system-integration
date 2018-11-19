@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
+@Table(name = "user_order")
 public class Order implements Serializable {
 
     private static final long serialVersionUID = 2893475845L;

@@ -9,7 +9,7 @@ public interface ItemService {
 
     List<Item> findAll();
 
-    Optional<Item> findOne(Long id);
+    Item findOne(Long id);
 
     Item save(Item item);
 
