@@ -17,6 +17,7 @@ public class Item implements Serializable {
     private String description;
     private String price;
     private Double measurement;
+    private int inStockNumber;
 
     @ManyToOne
     @JoinColumn(name="department_id")
@@ -82,5 +83,13 @@ public class Item implements Serializable {
 
     public void setItemImage(MultipartFile itemImage) {
         this.itemImage = itemImage;
+    }
+
+    public int getInStockNumber() {
+        return inStockNumber;
+    }
+
+    public void setInStockNumber(int inStockNumber) {
+        this.inStockNumber = inStockNumber;
     }
 }
