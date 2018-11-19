@@ -1,7 +1,6 @@
 package com.websystemintegration.ecommerce.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.aspectj.weaver.ast.Or;
 
 import javax.persistence.*;
 import java.io.Serializable;

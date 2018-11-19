@@ -1,5 +1,6 @@
 package com.websystemintegration.ecommerce.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
@@ -15,11 +16,24 @@ public class Item implements Serializable {
     @Column(columnDefinition = "text")
     private String description;
     private String price;
-    private Double measurment;
+    private Double measurement;
+
+    @ManyToOne
+    @JoinColumn(name="department_id")
+    @JsonIgnore
+    private Department shoppingCart;
 
 
     @Transient
     private MultipartFile itemImage;
+
+    public Department getShoppingCart() {
+        return shoppingCart;
+    }
+
+    public void setShoppingCart(Department shoppingCart) {
+        this.shoppingCart = shoppingCart;
+    }
 
     public Long getId() {
         return id;
@@ -46,11 +60,11 @@ public class Item implements Serializable {
     }
 
     public Double getMeasurment() {
-        return measurment;
+        return measurement;
     }
 
     public void setMeasurment(Double measurment) {
-        this.measurment = measurment;
+        this.measurement = measurment;
     }
 
     public MultipartFile getItemImage() {
