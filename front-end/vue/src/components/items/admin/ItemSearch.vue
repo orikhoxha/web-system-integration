@@ -4,7 +4,7 @@
             <div class="col-md-12">
                 <div class="customer-list">
                     <div class="header">
-                        <h3>Customer List</h3>
+                        <h3>Product List</h3>
                     </div>
                     <div class="filters-input">
                         <form class="form-inline">
@@ -15,7 +15,12 @@
                                 <input type="text" class="form-control" id="pwd" placeholder="First or Last Name" name="pwd">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="pwd" placeholder="Username" name="pwd">
+                                <select class="form-control" id="sel1">
+                                    <option>Chicken</option>
+                                    <option>Beef</option>
+                                    <option>Mackyes</option>
+                                    <option>Lackyer</option>
+                                </select>
                             </div>
                             <button type="submit" class="btn btn-default custom-btn-search">Submit</button>
                         </form>
@@ -28,8 +33,7 @@
 
 <script>
     export default {
-
-
+        name: "item-search"
     }
 </script>
 

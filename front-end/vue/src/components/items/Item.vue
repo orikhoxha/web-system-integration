@@ -16,7 +16,7 @@
                         <sup class="price-tile-partial-units">97</sup>
                     </div>
                     <div class="col-md-6 text-right">
-                        <span>{{item.size}}gr</span>
+                        <span>{{item.measurement}}gr</span>
                     </div>
                 </div>
                 <a href="#" class="product-title text-left">{{item.description}}</a>

@@ -23,6 +23,10 @@
                 }
                 return false;
             }
+        },
+
+        created() {
+            this.$store.dispatch('initItems');
         }
 
     }

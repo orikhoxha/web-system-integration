@@ -17,7 +17,9 @@ import UserAddresses from './components/user/UserAddresses.vue';
 import CustomerOrders from './components/user/customer/order/CustomerOrders.vue';
 import CustomerPayments from './components/user/customer/payment/CustomerPayments.vue';
 
-import CustomerList from './components/user/customer/list/CustomerList.vue';
+import ItemList from './components/items/admin/ItemList.vue';
+import ItemEdit from './components/items/admin/ItemEdit.vue'
+import ItemAdd from './components/items/admin/ItemAdd.vue';
 
 export const routes = [
     { path: '/', component: Home, alias: '/home', children: [
@@ -35,6 +37,8 @@ export const routes = [
             { path: '/userAddresses', component: UserAddresses, alias: '/account/addresses'},
             { path: '/customerOrders', component: CustomerOrders, alias: '/account/orders'},
             { path: '/payments', component: CustomerPayments, alias: '/account/payments'},
-            { path: '/customers', component: CustomerList, alias: '/account/customers'}
+            { path: '/items', component: ItemList, alias: "/account/items"},
+            { path: '/items/newItem', component: ItemAdd},
+            { path: '/items/:id', component: ItemEdit, name:'itemEdit'},
             ]},
 ]

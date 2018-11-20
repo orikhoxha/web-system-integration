@@ -7,7 +7,10 @@
             <router-link to="/account/addresses" tag="li"><a><i class="fas fa-map-marker-alt icons-nav"></i>Addresses</a></router-link>
             <router-link to="/account/payments" tag="li"><a><i class="far fa-credit-card icons-nav"></i>Payment methods</a></router-link>
             <router-link to="/account/customers" tag="li"><a><i class="fas fa-users icons-nav"></i>Customers</a></router-link>
+            <router-link tag="li" to="/account/items" replace><a><i class="fas fa-sitemap icons-nav"></i>items</a></router-link>
             <router-link tag="li" to="/login" replace><a><i class="fas fa-sign-out-alt icons-nav"></i>Log out</a></router-link>
+
+
 
         </ul>
     </nav>
