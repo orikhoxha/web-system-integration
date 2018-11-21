@@ -24,7 +24,7 @@ import ItemAdd from './components/items/admin/ItemAdd.vue';
 export const routes = [
     { path: '/', component: Home, alias: '/home', children: [
             { path: '/', component: Items},
-            { path: '/item/:id', component: ItemDetails}
+            { path: '/item/:id',name:'itemDetails', component: ItemDetails}
         ]},
     { path: '/favourites', component: FavouriteItems},
     { path: '/departments', component: Departments},

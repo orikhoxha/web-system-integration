@@ -78,17 +78,6 @@
                 };
 
                 this.$store.dispatch('addItem',formData);
-
-               /* axios.post("http://localhost:8082/api/items/", formData)
-                    .then(function(res){
-                        console.log(res);
-                            switch(res.status){
-                                case 200 :
-                                    console.log("added");
-                            }
-                        }
-                    )
-                    .catch(error => console.log(error))*/
             }
         }
 

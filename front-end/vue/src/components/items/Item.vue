@@ -1,7 +1,8 @@
 <template>
     <div class="col-md-3 col-xs-12 col-sm-4">
-        <router-link class="panel panel-default text-center panel-hover" style="cursor: pointer" tag="div" to="/item/3">
-            <a >
+        <router-link class="panel panel-default text-center panel-hover" style="cursor: pointer" tag="div"
+                     :to="{name: 'itemDetails', params:{id: item.id}}">
+            <a>
             <div class="panel-heading text-right">
                 <i class="fas fa-heart custom-heart"></i>
             </div>

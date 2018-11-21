@@ -4,6 +4,10 @@ export default {
         return Api().get('/items/')
     },
 
+    getItem(id) {
+        return Api().get('/items/' + id);
+    },
+
     postItem(item){
         Api().post('/items/', item)
     }

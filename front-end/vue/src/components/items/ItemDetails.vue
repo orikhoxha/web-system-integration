@@ -17,13 +17,13 @@
             <div class="col-md-7">
                 <div class="product-tile-details">
                     <a href="#" class="product-title">
-                        <div>Nature Valley Oats 'N Honey Crunchy Granola Bars, 26.82 oz</div>
+                        <div>{{description}} &nbsp; {{measurement}} oz</div>
                     </a>
                     <div class="price-container">
                             <span class="product-tile-price-container">
                                 <sup class="price-tile-currency">$</sup>
-                                <span class="price-tile-unit">3</span>
-                                <sup class="price-tile-partial-unit">97</sup>
+                                <span class="price-tile-unit">{{getPriceDetail(1)}}</span>
+                                <sup class="price-tile-partial-unit">{{getPriceDetail(2)}}</sup>
                             </span>
                     </div>
                 </div>
@@ -32,46 +32,28 @@
         <div class="row">
             <div class="col-md-6">
                 <h3>Details</h3>
-                <p class="text-left">Milk Cream, Sugar, Pumpkin Pie Base [Corn Syrup, Pumpkin Puree, Sugar, Water,
-                    Spices, Natural Flavoring, Potassium Sorbate (Preservative), Yellow 6], Whipped
-                    Cream Ribbon [Corn Syrup, High Fructose Corn Syrup, Water, Dextrose, Cornstarch Modified,
-                    Titanium Dioxide, Salt, Natural and Artificial Flavors, Potassium Sorbate, (Preservative)],
-                    Corn Syrup, Pie Crust Pieces [Unbleached Wheat Flour, Sugar, Palm Oil, Water, Nonfat Milk Powder,
-                    Salt, Natural Flavor, Brown Sugar, Coconut Oil, Butter (Cream, Salt), Natural Flavor], Stabilizer (
-                    Carob Bean Gum, Guar Gum).
+                <p class="text-left">{{details}}
                 </p>
 
                 <hr>
             </div>
             <div class="col-md-6">
                 <h3>Ingredients</h3>
-                <p class="text-left">Milk Cream, Sugar, Pumpkin Pie Base [Corn Syrup, Pumpkin Puree, Sugar, Water,
-                    Spices, Natural Flavoring, Potassium Sorbate (Preservative), Yellow 6], Whipped
-                    Cream Ribbon [Corn Syrup, High Fructose Corn Syrup, Water, Dextrose, Cornstarch Modified,
-                    Titanium Dioxide, Salt, Natural and Artificial Flavors, Potassium Sorbate, (Preservative)],
-                    Corn Syrup, Pie Crust Pieces [Unbleached Wheat Flour, Sugar, Palm Oil, Water, Nonfat Milk Powder,
-                    Salt, Natural Flavor, Brown Sugar, Coconut Oil, Butter (Cream, Salt), Natural Flavor], Stabilizer (
-                    Carob Bean Gum, Guar Gum).
+                <p class="text-left">{{ingredients}}
                 </p>
 
                 <hr>
             </div>
             <div class="col-md-6">
                 <h3>Directions</h3>
-                <p class="text-left">Milk Cream, Sugar, Pumpkin Pie Base [Corn Syrup, Pumpkin Puree, Sugar, Water,
-                    Spices, Natural Flavoring, Potassium Sorbate (Preservative), Yellow 6], Whipped
-                    Cream Ribbon [Corn Syrup, High Fructose Corn Syrup, Water, Dextrose, Cornstarch Modified,
-                    Titanium Dioxide, Salt, Natural and Artificial Flavors, Potassium Sorbate, (Preservative)],
-                    Corn Syrup, Pie Crust Pieces [Unbleached Wheat Flour, Sugar, Palm Oil, Water, Nonfat Milk Powder,
-                    Salt, Natural Flavor, Brown Sugar, Coconut Oil, Butter (Cream, Salt), Natural Flavor], Stabilizer (
-                    Carob Bean Gum, Guar Gum).
+                <p class="text-left">{{directions}}
                 </p>
 
                 <hr>
             </div>
             <div class="col-md-6">
                 <h3>Warnings</h3>
-                <p class="text-left">Milk Cream, Sugar, Pumpkin Pie Base</p>
+                <p class="text-left">{{warnings}}</p>
             </div>
         </div>
         <div class="row">
@@ -148,7 +130,6 @@
                             </div>
                             <a href="#" class="product-title text-left">This is the description</a>
                             <button class="btn btn-select-product">Add to Cart</button>
-
                         </div>
                     </div>
                 </div>
@@ -183,8 +164,44 @@
 </template>
 
 <script>
+    import ItemsService from '../../service/item/ItemsService.js';
     export default {
+        data(){
+            return {
+                itemId: this.$route.params.id,
+                description: '',
+                details: '',
+                warnings: '',
+                directions: '',
+                ingredients: '',
+                price: '',
+                measurement: ''
+            }
+        },
 
+        mounted(){
+            this.getItemDetails(this.itemId)
+        },
+
+        methods: {
+
+            async getItemDetails(params) {
+                const response = await ItemsService.getItem(params);
+                console.log(response);
+                let data = response.data;
+                this.description = data.description;
+                this.details = data.details;
+                this.warnings = data.warnings;
+                this.ingredients = data.ingredients;
+                this.directions = data.directions;
+                this.measurement = data.measurement;
+            },
+
+            /* Utils */
+            getPriceDetail(n){
+                return this.price.split(",")[n];
+            },
+        }
     }
 </script>
 
