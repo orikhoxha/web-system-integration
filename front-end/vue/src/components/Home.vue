@@ -16,7 +16,11 @@
     export default {
         components: {
            appCart: Cart,
+        },
+        created() {
+            this.$store.dispatch('initItems');
         }
+
     }
 </script>
 

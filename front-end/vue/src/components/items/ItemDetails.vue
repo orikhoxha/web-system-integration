@@ -184,7 +184,7 @@
 
 <script>
     export default {
-        name: "item-details"
+
     }
 </script>
 

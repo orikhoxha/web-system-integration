@@ -17,6 +17,22 @@
                 <label for="inStockNumber">In Stock Number</label>
                 <input type="text" class="form-control" id="inStockNumber" placeholder="In Stock Number" v-model="inStockNumber">
             </div>
+            <div class="form-group">
+                <label for="inStockNumber">Details</label>
+                <textarea class="form-control" id="details" placeholder="Add details" v-model="details"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="ingredients">Ingredients</label>
+                <textarea class="form-control" id="ingredients" placeholder="Add ingredients" v-model="ingredients"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="directions">Directions</label>
+                <textarea class="form-control" id="directions" placeholder="Add directions" v-model="directions"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="warnings">Warnings</label>
+                <textarea class="form-control" id="warnings" placeholder="Add warnings" v-model="warnings"></textarea>
+            </div>
             <!--<div class="form-group">
                 <label for="exampleInputFile">File input</label>
                 <input type="file" id="exampleInputFile">
@@ -40,7 +56,11 @@
                 description: '',
                 price: '',
                 measurement: '',
-                inStockNumber: ''
+                inStockNumber: '',
+                details: '',
+                ingredients: '',
+                directions: '',
+                warnings: ''
             }
         },
 
@@ -50,12 +70,25 @@
                     description: this.description,
                     price: this.price,
                     measurement: this.measurement,
-                    inStockNumber: this.inStockNumber
+                    inStockNumber: this.inStockNumber,
+                    details: this.details,
+                    ingredients: this.ingredients,
+                    directions: this.directions,
+                    warnings: this.warnings
                 };
 
-                axios.post("http://localhost:8082/api/items/", formData)
-                    .then(res => console.log(res))
-                    .catch(error => console.log(error))
+                this.$store.dispatch('addItem',formData);
+
+               /* axios.post("http://localhost:8082/api/items/", formData)
+                    .then(function(res){
+                        console.log(res);
+                            switch(res.status){
+                                case 200 :
+                                    console.log("added");
+                            }
+                        }
+                    )
+                    .catch(error => console.log(error))*/
             }
         }
 
