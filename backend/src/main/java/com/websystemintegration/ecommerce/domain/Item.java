@@ -19,6 +19,18 @@ public class Item implements Serializable {
     private Double measurement;
     private int inStockNumber;
 
+    @Column(columnDefinition = "text")
+    private String details;
+
+    @Column(columnDefinition = "text")
+    private String ingredients;
+
+    @Column(columnDefinition = "text")
+    private String directions;
+
+    @Column(columnDefinition = "text")
+    private String warnings;
+
     @ManyToOne
     @JoinColumn(name="department_id")
     @JsonIgnore
@@ -91,5 +103,37 @@ public class Item implements Serializable {
 
     public void setInStockNumber(int inStockNumber) {
         this.inStockNumber = inStockNumber;
+    }
+
+    public String getDetails() {
+        return details;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
+    }
+
+    public String getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(String ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    public String getDirections() {
+        return directions;
+    }
+
+    public void setDirections(String directions) {
+        this.directions = directions;
+    }
+
+    public String getWarnings() {
+        return warnings;
+    }
+
+    public void setWarnings(String warnings) {
+        this.warnings = warnings;
     }
 }
