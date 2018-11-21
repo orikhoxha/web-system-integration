@@ -33,16 +33,10 @@
                 <label for="warnings">Warnings</label>
                 <textarea class="form-control" id="warnings" placeholder="Add warnings" v-model="warnings"></textarea>
             </div>
-            <!--<div class="form-group">
-                <label for="exampleInputFile">File input</label>
-                <input type="file" id="exampleInputFile">
-                <p class="help-block">Example block-level help text here.</p>
+            <div class="form-group">
+                <label for="imageItem">Upload an image</label>
+                <input type="file"  @change="onFileSelected">
             </div>
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox"> Check me out
-                </label>
-            </div>-->
             <button type="submit" class="btn btn-default">Submit</button>
         </form>
     </div>
@@ -60,24 +54,29 @@
                 details: '',
                 ingredients: '',
                 directions: '',
-                warnings: ''
+                warnings: '',
+                selectedFile: null
             }
         },
 
         methods: {
             onSubmit() {
                 const formData = {
-                    description: this.description,
-                    price: this.price,
-                    measurement: this.measurement,
-                    inStockNumber: this.inStockNumber,
-                    details: this.details,
-                    ingredients: this.ingredients,
-                    directions: this.directions,
-                    warnings: this.warnings
+                    image: this.selectedFile,
+                    item: {description: this.description,
+                           price: this.price,
+                           measurement: this.measurement,
+                           inStockNumber: this.inStockNumber,
+                           details: this.details,
+                           ingredients: this.ingredients,
+                           directions: this.directions,
+                           warnings: this.warnings}
                 };
-
                 this.$store.dispatch('addItem',formData);
+            },
+
+            onFileSelected(event) {
+                this.selectedFile = event.target.files[0];
             }
         }
 

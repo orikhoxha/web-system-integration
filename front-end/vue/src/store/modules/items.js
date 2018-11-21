@@ -29,6 +29,7 @@ const actions = {
             });
     },
     addItem({commit}, item) {
+        console.log(item);
         ItemsService.postItem(item);
         commit('ADD_ITEM', item);
     }

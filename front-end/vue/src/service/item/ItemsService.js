@@ -9,6 +9,16 @@ export default {
     },
 
     postItem(item){
-        Api().post('/items/', item)
+        const image = item.image;
+        Api().post('/items/', item.item).then(res => {
+            const data = res.data;
+            const newId = data.id;
+            this.postItemImage(image, id);
+        })
+    },
+
+    postItemImage(image){
+        const formData = new FormData();
+        formData.append('file', image, id + '_' + image.filename);
     }
 }
