@@ -31,10 +31,19 @@ public class Item implements Serializable {
     @Column(columnDefinition = "text")
     private String warnings;
 
+
+
     @ManyToOne
     @JoinColumn(name="department_id")
-    @JsonIgnore
     private Department department;
+
+    private String shelve;
+
+    private String type;
+
+    private String brand;
+
+
 
 
     public Double getMeasurement() {
@@ -53,8 +62,7 @@ public class Item implements Serializable {
         this.department = department;
     }
 
-    @Transient
-    private MultipartFile itemImage;
+
 
 
     public Long getId() {
@@ -89,13 +97,6 @@ public class Item implements Serializable {
         this.measurement = measurment;
     }
 
-    public MultipartFile getItemImage() {
-        return itemImage;
-    }
-
-    public void setItemImage(MultipartFile itemImage) {
-        this.itemImage = itemImage;
-    }
 
     public int getInStockNumber() {
         return inStockNumber;
@@ -135,5 +136,29 @@ public class Item implements Serializable {
 
     public void setWarnings(String warnings) {
         this.warnings = warnings;
+    }
+
+    public String getShelve() {
+        return shelve;
+    }
+
+    public void setShelve(String shelve) {
+        this.shelve = shelve;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 }

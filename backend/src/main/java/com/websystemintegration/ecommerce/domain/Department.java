@@ -1,5 +1,7 @@
 package com.websystemintegration.ecommerce.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -12,9 +14,12 @@ public class Department implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private String mainDepartment;
+
     private String name;
 
     @OneToMany(mappedBy = "department", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Item> items;
 
     public Long getId() {
@@ -31,5 +36,21 @@ public class Department implements Serializable {
 
     public void setItems(List<Item> items) {
         this.items = items;
+    }
+
+    public String getMainDepartment() {
+        return mainDepartment;
+    }
+
+    public void setMainDepartment(String mainDepartment) {
+        this.mainDepartment = mainDepartment;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
