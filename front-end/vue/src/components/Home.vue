@@ -17,8 +17,11 @@
         components: {
            appCart: Cart,
         },
+
+        // Get the items and departments on first load of the Home component
         created() {
             this.$store.dispatch('initItems');
+            this.$store.dispatch('initDepartments');
         }
 
     }

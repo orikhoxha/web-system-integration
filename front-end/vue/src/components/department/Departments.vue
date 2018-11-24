@@ -10,9 +10,10 @@
 
 <script>
     import Department from './Department.vue';
+    import utils from '../../utils.js';
     export default {
 
-        data() {
+        /*data() {
             return {
                 departments: [
                     {name: 'Meat', subDepartments: ['Chicken','Beef','Fish']},
@@ -22,10 +23,22 @@
                     {name: 'Meat', subDepartments: ['Chicken','Beef','Fish']},
                 ]
             }
+        },*/
+
+        computed: {
+            departments(){
+                //return this.$store.getters.departmentsGroupByMainDepartment;
+                return utils.groupBy(this.$store.getters.departments, 'mainDepartment');
+            },
+
         },
+
         components: {
             appDepartment: Department
-        }
+        },
+
+
+
     }
 </script>
 

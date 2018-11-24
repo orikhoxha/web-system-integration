@@ -10,6 +10,12 @@
                 <input type="text" class="form-control" id="price" placeholder="Price" v-model="price">
             </div>
             <div class="form-group">
+                <label for="sel1">Select Department:</label>
+                <select class="form-control" id="sel1" v-model="selectedDepartment">
+                    <option v-for="department in departments" v-bind:value="{ id: department.id, mainDepartment: department.mainDepartment,  name: department.name }">{{department.name}}</option>
+                </select>
+            </div>
+            <div class="form-group">
                 <label for="measurement">Measurement</label>
                 <input type="text" class="form-control" id="measurement" placeholder="Measurement" v-model="measurement">
             </div>
@@ -34,7 +40,7 @@
                 <textarea class="form-control" id="warnings" placeholder="Add warnings" v-model="warnings"></textarea>
             </div>
             <div class="form-group">
-                <label for="imageItem">Upload an image</label>
+                <label>Upload an image</label>
                 <input type="file"  @change="onFileSelected">
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
@@ -43,7 +49,6 @@
 </template>
 
 <script>
-    import axios from 'axios';
     export default {
         data() {
             return {
@@ -55,6 +60,8 @@
                 ingredients: '',
                 directions: '',
                 warnings: '',
+                departments: this.$store.getters.departments,
+                selectedDepartment: '',
                 selectedFile: null
             }
         },
@@ -70,16 +77,18 @@
                            details: this.details,
                            ingredients: this.ingredients,
                            directions: this.directions,
-                           warnings: this.warnings}
+                           department: this.selectedDepartment,
+                           warnings: this.warnings
+                    }
                 };
+                console.log(formData);
                 this.$store.dispatch('addItem',formData);
             },
 
             onFileSelected(event) {
                 this.selectedFile = event.target.files[0];
-            }
+            },
         }
-
     }
 </script>
 

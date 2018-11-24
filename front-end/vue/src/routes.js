@@ -21,6 +21,10 @@ import ItemList from './components/items/admin/ItemList.vue';
 import ItemEdit from './components/items/admin/ItemEdit.vue'
 import ItemAdd from './components/items/admin/ItemAdd.vue';
 
+import DepartmentList from './components/department/admin/DepartmentList.vue';
+import DepartmentAdd from './components/department/admin/DepartmentAdd.vue';
+import DepartmentEdit from './components/department/admin/DepartmentEdit.vue';
+
 export const routes = [
     { path: '/', component: Home, alias: '/home', children: [
             { path: '/', component: Items},
@@ -36,9 +40,14 @@ export const routes = [
             { path: '/', component: UserAccountSettings, alias: '/account/settings'},
             { path: '/userAddresses', component: UserAddresses, alias: '/account/addresses'},
             { path: '/customerOrders', component: CustomerOrders, alias: '/account/orders'},
+
             { path: '/payments', component: CustomerPayments, alias: '/account/payments'},
-            { path: '/items', component: ItemList, alias: "/account/items"},
+            { path: '/items/list', component: ItemList, alias: "/account/items/list"},
             { path: '/items/newItem', component: ItemAdd},
             { path: '/items/:id', component: ItemEdit, name:'itemEdit'},
+
+            { path: '/departments/list', component: DepartmentList, alias: "/account/departments/list"},
+            { path: '/departments/newDepartment', component: DepartmentAdd},
+            { path: '/departments/:id', component: ItemEdit, name:'departmentEdit'},
             ]},
 ]

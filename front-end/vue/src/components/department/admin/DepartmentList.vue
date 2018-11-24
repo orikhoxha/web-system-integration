@@ -1,26 +1,24 @@
 <template>
     <main>
         <div class="account-settings">
-            <h4><router-link to="/items/newItem"><a>Add new Item</a></router-link></h4>
-            <app-item-search></app-item-search>
+            <h4><router-link to="/departments/newDepartment"><a>Add new Department</a></router-link></h4>
+            <app-department-search></app-department-search>
             <div class="user-list">
                 <div class="row">
                     <div class="col-md-12">
                         <table class="table table-bordered">
                             <thead>
                             <tr>
-                                <th>Title</th>
-                                <th>Price</th>
-                                <th>Department</th>
+                                <th>Name</th>
+                                <th>Main Department</th>
                                 <th>Details</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr v-for="item in items">
-                                <td>{{item.description}}</td>
-                                <td>{{item.price}}</td>
-                                <td>{{item.department.name}}</td>
-                                <router-link :to="{ name: 'itemEdit', params:{id: item.id} }" tag="td"><a>Details</a></router-link>
+                            <tr v-for="department in departments">
+                                <td>{{department.name}}</td>
+                                <td>{{department.mainDepartment}}</td>
+                                <router-link :to="{ name: 'departmentEdit', params:{id: department.id} }" tag="td"><a>Details</a></router-link>
                             </tr>
                             </tbody>
                         </table>
@@ -35,17 +33,17 @@
 </template>
 
 <script>
-    import ItemSearch from './ItemSearch.vue';
+    import DepartmentSearch from './DepartmentSearch.vue';
     export default {
         components: {
-            appItemSearch: ItemSearch
+            appDepartmentSearch: DepartmentSearch
         },
 
         computed: {
-            items(){
-                return this.$store.getters.items;
+            departments(){
+                return this.$store.getters.departments;
             }
-        }
+        },
     }
 </script>
 
