@@ -2,7 +2,8 @@
 
 const state = {
     date: {},
-    time: {}
+    time: {},
+    shippingAddress: {}
 };
 
 const mutations = {
@@ -13,6 +14,10 @@ const mutations = {
     'SET_TIME' (state,time) {
         state.time = time;
         console.log("THe time is set: " + state.time);
+    },
+    'SET_SHIPPING_ADDRESS' (state,shippingAddress) {
+        state.shippingAddress = shippingAddress;
+        console.log("THe shipping address is: " + state.shippingAddress);
     },
 
    /* 'ADD_PAYMENT' (state, payment) {
@@ -41,6 +46,9 @@ const actions = {
     setTime({commit}, time) {
         commit('SET_TIME', time);
     },
+    setShippingAddress({commit}, shippingAddress) {
+        commit('SET_SHIPPING_ADDRESS', shippingAddress);
+    },
 
    /* deletePayment({commit}){
         console.log('Deleting the: ' +  state.userPaymentSelected);
@@ -62,6 +70,10 @@ const getters = {
 
     checkoutTime: state => {
         return state.time;
+    },
+
+    checkoutShippingAddress: state => {
+        return state.shippingAddress;
     }
 };
 
