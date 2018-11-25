@@ -16,8 +16,8 @@ const mutations = {
         console.log("THe time is set: " + state.time);
     },
     'SET_SHIPPING_ADDRESS' (state,shippingAddress) {
+        console.log(shippingAddress);
         state.shippingAddress = shippingAddress;
-        console.log("THe shipping address is: " + state.shippingAddress);
     },
 
    /* 'ADD_PAYMENT' (state, payment) {

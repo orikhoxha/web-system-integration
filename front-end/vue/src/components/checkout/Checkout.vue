@@ -7,9 +7,9 @@
                     <i class="fas fa-car custom-car"></i>&nbsp;&nbsp;&nbsp;<span class="deliver-to">Delivery to</span>
                 </div>
                 <div class="address-checkout shadow">
-                    <h3>{{shippingAddressName}}</h3>
-                    <h3>{{shippingAddressCity}}, {{shippingAddressState}} {{shippingAddressZipcode}}</h3>
-                    <h3><a href="#" class="change-btn" type="button"  data-toggle="modal" data-target=".add-change-address-modal">Change Location</a></h3>
+                    <h3>{{shippingAddress.shippingAddressName}}</h3>
+                    <h3>{{shippingAddress.shippingAddressCity}}, {{shippingAddress.shippingAddressState}} {{shippingAddress.shippingAddressZipcode}}</h3>
+                    <!--<h3><a href="#" class="change-btn" type="button"  data-toggle="modal" data-target=".add-change-address-modal">Change Location</a></h3>-->
                 </div>
                 <div class="time-checkout shadow">
                     <div class="row">
@@ -32,100 +32,32 @@
                 </div>
             </div>
         </div>
-
-        <!--Change address -->
-        <div class="modal fade bs-example-modal-md add-change-address-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-            <div class="modal-dialog modal-md" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                        <h4 class="modal-title custom-title" id="myLargeModalLabel">Large modal</h4>
-                    </div>
-                    <form @submit.prevent="onSubmit">
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col">
-                                    <div class="form-group address-input">
-                                        <input type="text" class="form-control" placeholder="Address Line 1" id="shippingAddressName" v-model="shippingAddressName">
-                                    </div>
-                                    <div class="form-group  address-input">
-                                        <input type="text" class="form-control" placeholder="Address Line 2(Optional)" id="shippingAddressStreet1" v-model="shippingAddressStreet1">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Zip Code" id="shippingAddressZipcode" v-model="shippingAddressZipcode">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="City" id="shippingAddressCity" v-model="shippingAddressCity">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="State" id="shippingAddressState" v-model="shippingAddressState">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <div class="form-group address-input">
-                                        <input type="text" class="form-control" placeholder="Instructions for delivery(optional)" id="instructions" v-model="instructions">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-cancel-modal" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-save-modal">Save changes</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
     </div>
 </template>
 
 <script>
     import CheckoutDate from  './CheckoutDate.vue';
     import CheckoutTime from './CheckoutTime.vue';
+    import ChangeAddressModal from '../modals/ChangeAddressModal.vue';
+
     export default {
         data() {
             return {
                 days: [],
                 hours: [],
-                shippingAddressName: '',
-                shippingAddressStreet1: '',
-                shippingAddressCity: '',
-                shippingAddressState: '',
-                shippingAddressZipcode: '',
-                instructions: ''
+            }
+        },
 
+        computed: {
+            shippingAddress(){
+                return this.$store.getters.checkoutShippingAddress;
             }
         },
 
         methods: {
-
-            onSubmit(){
-                const formData = {
-                    shippingAddressName: this.shippingAddressName,
-                    shippingAddressStreet1: this.shippingAddressStreet1,
-                    shippingAddressCity: this.shippingAddressCity,
-                    shippingAddressState: this.shippingAddressState,
-                    shippingAddressZipcode: this.shippingAddressZipcode,
-                    instructions: this.instructions,
-                };
-                this.$store.dispatch('addShipping',formData);
-            },
-
             checkoutFinal() {
                 this.$router.push('/checkoutFinal');
             },
-
 
             /* Util */
             setHours() {
@@ -183,6 +115,7 @@
             }
         },
 
+
         created() {
             this.setDays();
             this.setHours();
@@ -190,7 +123,8 @@
 
         components: {
             appCheckoutDate: CheckoutDate,
-            appCheckoutTime: CheckoutTime
+            appCheckoutTime: CheckoutTime,
+            appChangeAddressModal: ChangeAddressModal
         }
     }
 </script>

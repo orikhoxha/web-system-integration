@@ -11,7 +11,7 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;Delivery in 3306</a></li>
+                        <li><a href="#" type="button"  data-toggle="modal" data-target=".add-change-address-modal"><i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;Delivery in 3306</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
                             <ul class="dropdown-menu custom-dropdown">
@@ -44,11 +44,20 @@
                 <router-link to="/favourites" tag="li"><a href="#">Favourites</a></router-link>
             </ul>
         </div>
+
+        <!-- Change address modal -->
+        <app-change-address-modal></app-change-address-modal>
     </div>
 
 </template>
 
 <script>
+    import ChangeAddressModal from './modals/ChangeAddressModal.vue';
+    export default {
+        components: {
+            appChangeAddressModal: ChangeAddressModal
+        }
+    }
 
 </script>
 
