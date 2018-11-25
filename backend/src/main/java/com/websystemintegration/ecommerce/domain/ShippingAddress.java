@@ -1,5 +1,8 @@
 package com.websystemintegration.ecommerce.domain;
 
+import org.hibernate.annotations.Type;
+import org.springframework.beans.factory.annotation.Value;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,11 +20,12 @@ public class ShippingAddress implements Serializable {
 
     private String shippingAddressName;
     private String shippingAddressStreet1;
-    private String shippingAddressStreet2;
     private String shippingAddressCity;
     private String shippingAddressState;
-    private String shippingAddressCountry;
     private String shippingAddressZipcode;
+
+    @Type(type="text")
+        private String instructions;
 
     public Long getId() {
         return id;
@@ -47,14 +51,6 @@ public class ShippingAddress implements Serializable {
         this.shippingAddressStreet1 = shippingAddressStreet1;
     }
 
-    public String getShippingAddressStreet2() {
-        return shippingAddressStreet2;
-    }
-
-    public void setShippingAddressStreet2(String shippingAddressStreet2) {
-        this.shippingAddressStreet2 = shippingAddressStreet2;
-    }
-
     public String getShippingAddressCity() {
         return shippingAddressCity;
     }
@@ -71,19 +67,19 @@ public class ShippingAddress implements Serializable {
         this.shippingAddressState = shippingAddressState;
     }
 
-    public String getShippingAddressCountry() {
-        return shippingAddressCountry;
-    }
-
-    public void setShippingAddressCountry(String shippingAddressCountry) {
-        this.shippingAddressCountry = shippingAddressCountry;
-    }
-
     public String getShippingAddressZipcode() {
         return shippingAddressZipcode;
     }
 
     public void setShippingAddressZipcode(String shippingAddressZipcode) {
         this.shippingAddressZipcode = shippingAddressZipcode;
+    }
+
+    public String getInstructions() {
+        return instructions;
+    }
+
+    public void setInstructions(String instructions) {
+        this.instructions = instructions;
     }
 }
