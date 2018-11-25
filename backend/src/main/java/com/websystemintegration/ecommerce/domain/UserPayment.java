@@ -1,6 +1,7 @@
 package com.websystemintegration.ecommerce.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -13,7 +14,10 @@ public class UserPayment implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @Value("VISA")
     private String type;
+    
     private String cardNumber;
     private String expiryDate;
     private int cvc;
