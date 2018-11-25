@@ -2,8 +2,10 @@ package com.websystemintegration.ecommerce.controller;
 
 import com.websystemintegration.ecommerce.domain.User;
 import com.websystemintegration.ecommerce.domain.UserPayment;
+import com.websystemintegration.ecommerce.domain.UserShipping;
 import com.websystemintegration.ecommerce.service.UserPaymentService;
 import com.websystemintegration.ecommerce.service.UserService;
+import com.websystemintegration.ecommerce.service.UserShippingService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,9 @@ public class UserController {
 
     @Autowired
     private UserPaymentService userPaymentService;
+
+    @Autowired
+    private UserShippingService userShippingService;
 
     @PostMapping(value = "/")
     public User addUser(@RequestBody User User) {
@@ -75,6 +80,26 @@ public class UserController {
     @DeleteMapping(value = "/{userId}/payments/{paymentId}")
     public ResponseEntity<?> deleteUserPayment(@PathVariable Long userId, @PathVariable Long paymentId){
         userPaymentService.removeUserPayment(paymentId);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping(value = "/shipping")
+    public List<UserShipping> userShipping(){
+        User user = userService.findOne(new Long(1));
+        logger.info("User: " + user) ;
+        return userShippingService.findAll(user);
+    }
+
+    @PostMapping(value = "/shipping")
+    public void addUserShipping(@RequestBody UserShipping userShipping){
+        User user = userService.findOne(new Long(1));
+        userShipping.setUser(user);
+        userShippingService.save(userShipping);
+    }
+
+    @DeleteMapping(value = "/{userId}/shipping/{userShippingId}")
+    public ResponseEntity<?> deleteUserShipping(@PathVariable Long userId, @PathVariable Long userShippingId){
+        userShippingService.removeUserShipping(userShippingId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

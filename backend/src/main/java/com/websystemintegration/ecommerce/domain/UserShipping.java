@@ -1,6 +1,8 @@
 package com.websystemintegration.ecommerce.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -12,13 +14,15 @@ public class UserShipping implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String userShippingName;
+
     private String userShippingStreet1;
     private String userShippingStreet2;
     private String userShippingCity;
     private String userShippingState;
-    private String userShippingCountry;
     private String userShippingZipcode;
+
+    @Type(type="text")
+    private String instructions;
     private Boolean userShippingDefault;
 
     @ManyToOne
@@ -34,28 +38,12 @@ public class UserShipping implements Serializable {
         this.id = id;
     }
 
-    public String getUserShippingName() {
-        return userShippingName;
-    }
-
-    public void setUserShippingName(String userShippingName) {
-        this.userShippingName = userShippingName;
-    }
-
     public String getUserShippingStreet1() {
         return userShippingStreet1;
     }
 
     public void setUserShippingStreet1(String userShippingStreet1) {
         this.userShippingStreet1 = userShippingStreet1;
-    }
-
-    public String getUserShippingStreet2() {
-        return userShippingStreet2;
-    }
-
-    public void setUserShippingStreet2(String userShippingStreet2) {
-        this.userShippingStreet2 = userShippingStreet2;
     }
 
     public String getUserShippingCity() {
@@ -72,14 +60,6 @@ public class UserShipping implements Serializable {
 
     public void setUserShippingState(String userShippingState) {
         this.userShippingState = userShippingState;
-    }
-
-    public String getUserShippingCountry() {
-        return userShippingCountry;
-    }
-
-    public void setUserShippingCountry(String userShippingCountry) {
-        this.userShippingCountry = userShippingCountry;
     }
 
     public String getUserShippingZipcode() {
@@ -104,5 +84,21 @@ public class UserShipping implements Serializable {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getInstructions() {
+        return instructions;
+    }
+
+    public void setInstructions(String instructions) {
+        this.instructions = instructions;
+    }
+
+    public String getUserShippingStreet2() {
+        return userShippingStreet2;
+    }
+
+    public void setUserShippingStreet2(String userShippingStreet2) {
+        this.userShippingStreet2 = userShippingStreet2;
     }
 }
