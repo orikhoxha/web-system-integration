@@ -3,14 +3,18 @@ import  axios from 'axios';
 
 export default {
     getUserPayments(){
-        return Api().get('/user/payments')
+        return Api().get('/users/payments/')
     },
 
     getUserPayment(id) {
-        return Api().get('/user/payments/' + id);
+        return Api().get('/users/payments/' + id);
     },
 
     postUserPayment(userPayment){
-        Api().post('/user/payments/', userPayment);
+        Api().post('/users/payments/', userPayment);
+    },
+
+    deleteUserPayment(id){
+        return Api().delete('/users/1/payments/' + id);
     }
 }
