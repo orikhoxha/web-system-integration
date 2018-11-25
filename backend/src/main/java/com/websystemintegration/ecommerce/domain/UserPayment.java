@@ -15,15 +15,13 @@ public class UserPayment implements Serializable {
     private Long id;
     private String type;
     private String cardNumber;
-    private int expiryMonth;
-    private int expiryYear;
+    private String expiryDate;
     private int cvc;
     private String holderName;
     private boolean defaultPayment;
 
     @ManyToOne
     @JoinColumn(name="user_id")
-    @JsonIgnore
     private User user;
 
     public Long getId() {
@@ -50,20 +48,12 @@ public class UserPayment implements Serializable {
         this.cardNumber = cardNumber;
     }
 
-    public int getExpiryMonth() {
-        return expiryMonth;
+    public String getExpiryDate() {
+        return expiryDate;
     }
 
-    public void setExpiryMonth(int expiryMonth) {
-        this.expiryMonth = expiryMonth;
-    }
-
-    public int getExpiryYear() {
-        return expiryYear;
-    }
-
-    public void setExpiryYear(int expiryYear) {
-        this.expiryYear = expiryYear;
+    public void setExpiryDate(String expiryDate) {
+        this.expiryDate = expiryDate;
     }
 
     public int getCvc() {
