@@ -5,6 +5,7 @@ import departments from './modules/departments.js';
 import cart from './modules/cart.js';
 import payment from './modules/payment.js';
 import shipping from './modules/shipping.js';
+import checkout from './modules/checkout.js';
 
 Vue.use(Vuex);
 
@@ -14,7 +15,8 @@ export default new Vuex.Store({
         items: items,
         cart: cart,
         payment: payment,
-        shipping: shipping
+        shipping: shipping,
+        checkout: checkout
 
     }
 });
