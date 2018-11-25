@@ -12,7 +12,7 @@ import CheckoutFinal from './components/checkout/CheckoutFinal.vue';
 
 import UserAccount from './components/user/UserAccount.vue';
 import UserAccountSettings from './components/user/UserAccountSettings.vue';
-import UserAddresses from './components/user/UserAddresses.vue';
+import CustomerAddresses from './components/user/customer/address/CustomerAddresses.vue';
 
 import CustomerOrders from './components/user/customer/order/CustomerOrders.vue';
 import CustomerPayments from './components/user/customer/payment/CustomerPayments.vue';
@@ -23,7 +23,6 @@ import ItemAdd from './components/items/admin/ItemAdd.vue';
 
 import DepartmentList from './components/department/admin/DepartmentList.vue';
 import DepartmentAdd from './components/department/admin/DepartmentAdd.vue';
-import DepartmentEdit from './components/department/admin/DepartmentEdit.vue';
 
 export const routes = [
     { path: '/', component: Home, alias: '/home', children: [
@@ -38,7 +37,7 @@ export const routes = [
     { path: '/checkoutFinal', component: CheckoutFinal},
     { path: '/account', component: UserAccount, children: [
             { path: '/', component: UserAccountSettings, alias: '/account/settings'},
-            { path: '/userAddresses', component: UserAddresses, alias: '/account/addresses'},
+            { path: '/customerAddresses', component: CustomerAddresses, alias: '/account/addresses'},
             { path: '/customerOrders', component: CustomerOrders, alias: '/account/orders'},
 
             { path: '/payments', component: CustomerPayments, alias: '/account/payments'},
