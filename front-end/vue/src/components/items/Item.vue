@@ -1,14 +1,13 @@
 <template>
     <div class="col-md-3 col-xs-12 col-sm-4">
-        <router-link class="panel panel-default text-center panel-hover" style="cursor: pointer" tag="div"
-                     :to="{name: 'itemDetails', params:{id: item.id}}">
+        <div class="panel panel-default text-center panel-hover">
             <a>
             <div class="panel-heading text-right">
                 <i class="fas fa-heart custom-heart"></i>
             </div>
-            <div class="panel-body">
+            <router-link class="panel-body" style="cursor: pointer" tag="div" :to="{name: 'itemDetails', params:{id: item.id}}">
                 <img src="../../assets/sample_image_3.jpg" class="img-article">
-            </div>
+            </router-link>
             <div class="panel-footer">
                 <div class="row product-tile">
                     <div class="col-md-6 text-left">
@@ -21,19 +20,28 @@
                     </div>
                 </div>
                 <a href="#" class="product-title text-left">{{item.description}}</a>
-                <button class="btn btn-select-product">Add to Cart</button>
+                <button @click="addToCart" class="btn btn-select-product">Add to Cart</button>
 
             </div></a>
-        </router-link>
+        </div>
     </div>
 </template>
 
 <script>
-
-
     export default {
         props: ['item'],
 
+        methods: {
+            addToCart(){
+                const theItem = {
+                    itemId: this.item.id,
+                    quantity: 1,
+                    price: this.item.price,
+                    description: this.item.description
+                };
+                this.$store.dispatch('addItemCart',theItem);
+            }
+        }
     }
 </script>
 

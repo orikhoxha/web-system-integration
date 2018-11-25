@@ -21,36 +21,36 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group custom-input-modal">
-                                        <input type="text" class="form-control" placeholder="Email" id="address1">
+                                        <input type="text" class="form-control" placeholder="Email" id="email" v-model="user.email">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group custom-input-modal">
-                                        <input type="text" class="form-control" placeholder="Phone" id="address2">
+                                        <input type="text" class="form-control" placeholder="Phone" id="address2" v-model="user.phone">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group custom-input-modal">
-                                        <input type="text" class="form-control" placeholder="Card Number" id="address2">
+                                        <input type="text" class="form-control" placeholder="Card Number" id="cardNumber" v-model="cardNumber">
                                     </div>
                                 </div>
                             </div>
                             <div class="row border-custom">
                                 <div class="col-md-4">
                                     <div class="form-group no-border-input">
-                                        <input type="text" class="form-control" placeholder="Name on Card" id="address1">
+                                        <input type="text" class="form-control" placeholder="Name on Card" id="holderName" v-model="holderName">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group no-border-input">
-                                        <input type="text" class="form-control" placeholder="MM/YY" id="address1">
+                                        <input type="text" class="form-control" placeholder="MM/YY" id="expiryDate" v-model="expiryDate">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group no-border-input">
-                                        <input type="text" class="form-control" placeholder="CVC" id="address1">
+                                        <input type="text" class="form-control" placeholder="CVC" id="cvc" v-model="cvc">
                                     </div>
                                 </div>
                             </div>
@@ -91,17 +91,8 @@
     /* Don't include cvc and the whole card number for security purpose, it gets processed in the db */
     import CustomerPayment from './CustomerPayment.vue';
     export default {
-        data() {
-            return {
-                customerPayments: [
-                    {email: "orikhoxha@gmail.com", phone: "04444444", type:"Visa", cardNumberEnding:"1234", nameOnCard: "Orik Hoxha", dateExpire: "08/21"},
-                    {email: "orikhoxha@gmail.com", phone: "04444444", type:"Debit", cardNumberEnding:"1234", nameOnCard: "Orik Hoxha", dateExpire: "08/21"},
-                    {email: "orikhoxha@gmail.com", phone: "04444444", type: "Credit", cardNumberEnding:"1234", nameOnCard: "Orik Hoxha", dateExpire: "08/21"},
-                    {email: "orikhoxha@gmail.com", phone: "04444444", type:"Visa", cardNumberEnding:"1234", nameOnCard: "Orik Hoxha", dateExpire: "08/21"}
-                ]
-            }
-        },
-        components: {
+
+    components: {
             appUserPayment: CustomerPayment
         }
     }

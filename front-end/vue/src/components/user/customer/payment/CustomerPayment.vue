@@ -1,7 +1,7 @@
 <template>
     <div class="payment-header">
         <div class="visa-ending float-left">
-            <span class="main">{{customerPayment.type}} {{customerPayment.cardNumberEnding}}</span>
+            <span class="main">{{customerPayment.type}} {{customerPayment.cardNumber}}</span>
             <span class="ending">- ending in {{customerPayment.cardNumberEnding}}</span>
         </div>
         <div class="card-edit float-right">
@@ -19,6 +19,7 @@
     export default {
         props: ['customerPayment']
     }
+
 </script>
 
 <style scoped>
