@@ -7,45 +7,32 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                     <h4 class="modal-title custom-title" id="myLargeModalLabel">Large modal</h4>
                 </div>
-                <form action="">
+                <form @submit.prevent="onSubmit">
                     <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group custom-input-modal">
-                                    <input type="text" class="form-control" placeholder="Email" id="address1">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group custom-input-modal">
-                                    <input type="text" class="form-control" placeholder="Phone" id="address2">
-                                </div>
-                            </div>
-                        </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group custom-input-modal">
-                                    <input type="text" class="form-control" placeholder="Card Number" id="address2">
+                                    <input type="text" class="form-control" placeholder="Card Number" id="cardNumber" v-model="cardNumber">
                                 </div>
                             </div>
                         </div>
                         <div class="row border-custom">
                             <div class="col-md-4">
                                 <div class="form-group no-border-input">
-                                    <input type="text" class="form-control" placeholder="Name on Card" id="address1">
+                                    <input type="text" class="form-control" placeholder="Name on Card" id="holderName" v-model="holderName">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group no-border-input">
-                                    <input type="text" class="form-control" placeholder="MM/YY" id="address1">
+                                    <input type="text" class="form-control" placeholder="MM/YY" id="expiryMonthYear" v-model="expiryMonthYear">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group no-border-input">
-                                    <input type="text" class="form-control" placeholder="CVC" id="address1">
+                                    <input type="text" class="form-control" placeholder="CVC" id="cvc" v-model="cvc">
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-cancel-modal" data-dismiss="modal">Close</button>
@@ -56,13 +43,28 @@
         </div>
     </div>
 </template>
-
 <script>
     export default {
-        name: "change-payment-modal"
+        data() {
+            return {
+                type: 'VISA',
+                cardNumber: '',
+                expiryMonthYear: '',
+                cvc: '',
+                holderName: ''
+            }
+        },
+        methods: {
+            onSubmit() {
+                const formData = {
+                    type: this.type,
+                    cardNumber: this.cardNumber,
+                    expiryMonthYear: this.expiryMonthYear,
+                    cvc: this.cvc,
+                    holderName: this.holderName
+                };
+                this.$store.dispatch('setCheckoutPayment', formData);
+            },
+        }
     }
 </script>
-
-<style scoped>
-
-</style>

@@ -51,31 +51,19 @@
                                 <span>Visa</span>
                             </div>
                             <div class="col-md-8">
-                                <span>ending in 1234</span>
+                                <span>ending in {{checkoutPayment.cardNumber}}</span>
                             </div>
                             <div class="col-md-4 text-right">
                                 <span>Name on Card</span>
                             </div>
                             <div class="col-md-8">
-                                <span>ending in 1234</span>
+                                <span>{{checkoutPayment.holderName}}</span>
                             </div>
                             <div class="col-md-4 text-right">
                                 <span>Expiring</span>
                             </div>
                             <div class="col-md-8">
-                                <span>ending in 1234</span>
-                            </div>
-                            <div class="col-md-4 text-right">
-                                <span>Phone</span>
-                            </div>
-                            <div class="col-md-8">
-                                <span>ending in 1234</span>
-                            </div>
-                            <div class="col-md-4 text-right">
-                                <span>Phone</span>
-                            </div>
-                            <div class="col-md-8">
-                                <span>ending in 1234</span>
+                                <span>{{checkoutPayment.expiryMonthYear}}</span>
                             </div>
                         </div>
                     </div>
@@ -88,27 +76,7 @@
                                 <span class="label-payment">Subtotal</span>
                             </div>
                             <div class="col-md-6 text-right">
-                                <span class="value">6$</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="payment-info-checkout">
-                            <div class="col-md-6">
-                                <span class="label-payment">Value Shipping</span>
-                            </div>
-                            <div class="col-md-6 text-right">
-                                <span class="value">6$</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="payment-info-checkout">
-                            <div class="col-md-6">
-                                <span class="label-payment">Subtotal</span>
-                            </div>
-                            <div class="col-md-6 text-right">
-                                <span class="value">6$</span>
+                                <span class="value">{{totalPriceAdded}}$</span>
                             </div>
                         </div>
                     </div>
@@ -129,61 +97,13 @@
                                 <span class="label-payment estimate">Est. total</span>
                             </div>
                             <div class="col-md-6 text-right">
-                                <span class="value price">$6</span>
+                                <span class="value price">{{totalPriceAdded + 6}} $</span>
                             </div>
                         </div>
                     </div>
                     <hr>
-                    <div class="row">
-                        <div class="articles-overview">
-                            <div class="col-md-4">
-                                <div class="image-container">
-                                    <div class="article-image">
-                                        <img src="../../assets/sample_image.jpg" alt="" >
-                                    </div>
-                                    <span class="image-quantity">3</span>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <p class="article-description">Vanity Fair Every Day Paper Napkins</p>
-                            </div>
-                            <div class="col-md-4"><span class="article-price">$15</span></div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="articles-overview">
-                            <div class="col-md-4">
-                                <div class="image-container">
-                                    <div class="article-image">
-                                        <img src="../../assets/sample_image.jpg" alt="" >
-                                    </div>
-                                    <span class="image-quantity">3</span>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <p class="article-description">Vanity Fair Every Day Paper Napkins</p>
-                            </div>
-                            <div class="col-md-4"><span class="article-price">$15</span></div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="articles-overview">
-                            <div class="col-md-4">
-                                <div class="image-container">
-                                    <div class="article-image">
-                                        <img src="../../assets/sample_image.jpg" alt="" >
-                                    </div>
-                                    <span class="image-quantity">3</span>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <p class="article-description">Vanity Fair Every Day Paper Napkins</p>
-                            </div>
-                            <div class="col-md-4"><span class="article-price">$15</span></div>
-                        </div>
-                    </div>
+                    <app-checkout-final-cart v-for="cartItem in cartItems" :cartItem="cartItem"></app-checkout-final-cart>
+
                 </div>
             </div>
         </div>
@@ -203,8 +123,7 @@
         <!-- Modals -->
         <app-change-time-modal></app-change-time-modal>
         <!-- Change time, day -->
-
-
+        <app-change-payment-modal></app-change-payment-modal>
 
     </div>
 </template>
@@ -212,17 +131,25 @@
 <script>
     import {mapGetters} from 'vuex';
     import ChangeTimeModal from '../modals/ChangeTimeModal.vue';
+    import ChangePaymentModal from '../modals/ChangePaymentModal.vue';
+    import CheckoutFinalCart from './CheckoutFinalCart.vue';
     export default {
         computed: {
             ...mapGetters({
                 checkoutDate: 'checkoutDate',
                 checkoutTime: 'checkoutTime',
-                checkoutAddress: 'checkoutShippingAddress'
-            })
+                checkoutAddress: 'checkoutShippingAddress',
+                checkoutPayment: 'checkoutPayment',
+                totalPriceAdded: 'totalPriceAdded',
+                cartItems: 'cartItems'
+            }),
+
         },
 
         components: {
-            appChangeTimeModal: ChangeTimeModal
+            appChangeTimeModal: ChangeTimeModal,
+            appChangePaymentModal: ChangePaymentModal,
+            appCheckoutFinalCart: CheckoutFinalCart
         }
     }
 </script>

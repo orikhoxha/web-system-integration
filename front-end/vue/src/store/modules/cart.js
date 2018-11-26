@@ -6,26 +6,27 @@ const state = {
 
 
 const mutations = {
-    'ADD_ITEM_CART'(state, {itemId, quantity, price}){
-        const record = state.cartItems.find(element => element.id === itemId.id);
-
+    'ADD_ITEM_CART'(state, {itemId, quantity, price, description}){
+        const record = state.cartItems.find(element => element.id === itemId);
         if(record){
             record.quantity += quantity;
         }else {
             state.cartItems.push({
                 id: itemId,
                 quantity: quantity,
-                price: price
+                description: description,
+                price: price,
             })
+
         }
         state.totalItems += quantity;
-        //state.totalPriceAdded += record.quantity * record.price;
+        state.totalPriceAdded = state.totalPriceAdded + (quantity * price);
     },
 };
 
 const actions = {
     addItemCart({commit}, item) {
-        console.log(item);
+        console.log("the item: " + item.description);
         //DepartmentService.postDepartment(department);
         commit('ADD_ITEM_CART', item);
     }
@@ -45,6 +46,10 @@ const getters = {
     },
     totalItems(state) {
         return state.totalItems;
+    },
+
+    totalPriceAdded(state){
+        return state.totalPriceAdded;
     }
 };
 
