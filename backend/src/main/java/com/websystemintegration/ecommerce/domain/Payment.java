@@ -15,11 +15,9 @@ public class Payment implements Serializable {
     private Long id;
     private String type;
     private String cardNumber;
-    private int expiryYear;
-    private int expiryMonth;
+    private String expiryMonthYear;
     private int cvc;
     private String holderName;
-    private boolean defaultPayment;
 
 
     @OneToOne
@@ -54,20 +52,12 @@ public class Payment implements Serializable {
         this.cardNumber = cardNumber;
     }
 
-    public int getExpiryYear() {
-        return expiryYear;
+    public String getExpiryMonthYear() {
+        return expiryMonthYear;
     }
 
-    public void setExpiryYear(int expiryYear) {
-        this.expiryYear = expiryYear;
-    }
-
-    public int getExpiryMonth() {
-        return expiryMonth;
-    }
-
-    public void setExpiryMonth(int expiryMonth) {
-        this.expiryMonth = expiryMonth;
+    public void setExpiryMonthYear(String expiryMonthYear) {
+        this.expiryMonthYear = expiryMonthYear;
     }
 
     public int getCvc() {
@@ -84,14 +74,6 @@ public class Payment implements Serializable {
 
     public void setHolderName(String holderName) {
         this.holderName = holderName;
-    }
-
-    public boolean isDefaultPayment() {
-        return defaultPayment;
-    }
-
-    public void setDefaultPayment(boolean defaultPayment) {
-        this.defaultPayment = defaultPayment;
     }
 
     public Order getOrder() {
