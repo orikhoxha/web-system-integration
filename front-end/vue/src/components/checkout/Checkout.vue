@@ -39,6 +39,7 @@
     import CheckoutDate from  './CheckoutDate.vue';
     import CheckoutTime from './CheckoutTime.vue';
     import ChangeAddressModal from '../modals/ChangeAddressModal.vue';
+    import Utils from '../../utils.js';
 
     export default {
         data() {
@@ -61,60 +62,14 @@
 
             /* Util */
             setHours() {
-                let hoursMax = 20;
-                let currentHour =  new Date().getHours();
-                console.log("currenthour******************"  + currentHour);
-
-
-                currentHour = currentHour > 9 ? currentHour : 9;
-
-                currentHour =  9;
-
-                for(let i = currentHour; i <= hoursMax; i++) {
-                    this.hours.push(i);
-                }
+                this.hours = Utils.setHours();
 
             },
 
             setDays() {
-                let startDate = new Date();
-                let maxIteration  = 5;
-
-                for(let i = 0; i < maxIteration; ++i) {
-                    let currentDate = new Date();
-                    currentDate.setDate(startDate.getDate() + i);
-
-                    let day = currentDate.getDate() === startDate.getDate() ? "Today" : this.getDayString(currentDate.getDay());
-
-                    if (day === "Today" && startDate.getHours() > 20) {
-                        maxIteration += 1;
-                        continue;
-                    }
-
-                    let currentDateFormatted = this.convertDate(currentDate);
-                    let month = currentDate.toLocaleString("en-us", {month: "long"});
-                    this.days.push({date: currentDateFormatted, dayString: day, dayInt: currentDate.getDate() , month: month});
-                }
-
+                this.days = Utils.setDays();
             },
-
-            getDayString(dayNumber) {
-                switch(dayNumber){
-                    case 0: return "Sunday";
-                    case 1: return "Monday";
-                    case 2: return "Tuesday";
-                    case 3: return "Wednesday";
-                    case 4: return "Thursday";
-                    case 5: return "Friday";
-                    case 6: return "Saturday";
-                }
-            },
-
-            convertDate(date) {
-                return date.toLocaleDateString();
-            }
         },
-
 
         created() {
             this.setDays();

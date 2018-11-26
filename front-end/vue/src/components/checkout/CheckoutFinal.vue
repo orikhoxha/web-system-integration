@@ -18,16 +18,10 @@
                         </div>
                         <div class="col-md-8">
                             <span>Arrives</span>
-                            <span>Wed, Oct 4 between 02:00-04:00 pm</span>
+                            <span>Wed, {{checkoutDate.month}}  {{ checkoutDate.dayInt}} between {{checkoutTime}} pm</span>
                         </div>
                     </div>
                     <div class="row payment-change">
-                        <div class="col">
-                            <div class="change float-right">
-                                <button type="button" class="btn change-info" data-toggle="modal" data-target=".change-address-modal">Set Address</button>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
                         <div class="col-md-4">
                             <i class="fas fa-check-circle custom-check"></i>
                             <div class="head-info">
@@ -36,7 +30,7 @@
                         </div>
                         <div class="col-md-8">
                             <span>Arrives</span>
-                            <span>Riverhills Dr Tampa, FL, 43234</span>
+                            <span>{{checkoutAddress.shippingAddressName}}, {{checkoutAddress.shippingAddressState}}, {{checkoutAddress.shippingAddressZipcode}}</span>
                         </div>
                     </div>
                     <div class="row payment-change">
@@ -206,223 +200,30 @@
             </div>
         </div>
 
-
-
         <!-- Modals -->
-
+        <app-change-time-modal></app-change-time-modal>
         <!-- Change time, day -->
-        <div class="modal fade bs-example-modal-lg change-time-day-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                        <h4 class="modal-title custom-title" id="myLargeModalLabel">Large modal</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="checkout-content">
-                                <div class="time-checkout">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="container-fluid">
-                                                <div class="row">
-                                                    <div class="days">
-                                                        <div class="col-md-1">
-                                                            <div class="day center-yx">
-                                                                <a>Today</a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-1">
-                                                            <div class="day center-yx">
-                                                                <a>Tomorrow</a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-1">
-                                                            <div class="day center-yx">
-                                                                <a>Fri, Oct 5</a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-1">
-                                                            <div class="day center-yx">
-                                                                <a>Sat, Oct 6</a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-1">
-                                                            <div class="day center-yx">
-                                                                <a>Sun, Oct 7</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="times">
-                                                        <div class="col time">
-                                                            <i class="far fa-circle"></i>
-                                                            <span >9am - 10am</span>
-                                                        </div>
-                                                        <div class="col time">
-                                                            <i class="far fa-circle"></i>
-                                                            <span >9am - 10am</span>
-                                                        </div>
-                                                        <div class="col time">
-                                                            <i class="far fa-circle"></i>
-                                                            <span >9am - 10am</span>
-                                                        </div>
-                                                        <div class="col time">
-                                                            <i class="far fa-circle"></i>
-                                                            <span >9am - 10am</span>
-                                                        </div>
-                                                        <div class="col time">
-                                                            <i class="far fa-circle"></i>
-                                                            <span >9am - 10am</span>
-                                                        </div>
-                                                        <div class="col time">
-                                                            <i class="dot"></i>
-                                                            <span >9am - 10am</span>
-                                                        </div>
-                                                        <div class="col time">
-                                                            <i class="far fa-circle custom-select"></i>
-                                                            <span >9am - 10am</span>
-                                                        </div>
-                                                        <div class="col time">
-                                                            <i class="far fa-circle"></i>
-                                                            <span >9am - 10am</span>
-                                                        </div>
-                                                        <div class="col time">
-                                                            <i class="far fa-circle"></i>
-                                                            <span >9am - 10am</span>
-                                                        </div>
-                                                        <div class="col time">
-                                                            <i class="far fa-circle"></i>
-                                                            <span >9am - 10am</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-cancel-modal" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-save-modal">Save changes</button>
-                    </div>
-                </div>
-            </div>
-        </div>
 
 
-        <!-- Change address -->
-        <div class="modal fade bs-example-modal-md change-address-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-            <div class="modal-dialog modal-md" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                        <h4 class="modal-title custom-title" id="myLargeModalLabel">Large modal</h4>
-                    </div>
-                    <form action="">
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col">
-                                    <div class="form-group address-input">
-                                        <input type="text" class="form-control" placeholder="Address Line 1" id="address1">
-                                    </div>
-                                    <div class="form-group  address-input">
-                                        <input type="text" class="form-control" placeholder="Address Line 2(Optional)" id="address2">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-5">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Zip Code" id="address2">
-                                    </div>
-                                </div>
-                                <div class="col-md-7">
-                                    <p>Chicago, IL</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <div class="form-group address-input">
-                                        <input type="text" class="form-control" placeholder="Instructions for delivery(optional)" id="address1">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-cancel-modal" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-save-modal">Save changes</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
 
-        <!-- Setup payment -->
-        <div class="modal fade bs-example-modal-md change-payment-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-            <div class="modal-dialog modal-md" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                        <h4 class="modal-title custom-title" id="myLargeModalLabel">Large modal</h4>
-                    </div>
-                    <form action="">
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group custom-input-modal">
-                                        <input type="text" class="form-control" placeholder="Email" id="address1">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group custom-input-modal">
-                                        <input type="text" class="form-control" placeholder="Phone" id="address2">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group custom-input-modal">
-                                        <input type="text" class="form-control" placeholder="Card Number" id="address2">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row border-custom">
-                                <div class="col-md-4">
-                                    <div class="form-group no-border-input">
-                                        <input type="text" class="form-control" placeholder="Name on Card" id="address1">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group no-border-input">
-                                        <input type="text" class="form-control" placeholder="MM/YY" id="address1">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group no-border-input">
-                                        <input type="text" class="form-control" placeholder="CVC" id="address1">
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-cancel-modal" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-save-modal">Save changes</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
     </div>
 </template>
 
 <script>
+    import {mapGetters} from 'vuex';
+    import ChangeTimeModal from '../modals/ChangeTimeModal.vue';
     export default {
-        name: "checkout-final"
+        computed: {
+            ...mapGetters({
+                checkoutDate: 'checkoutDate',
+                checkoutTime: 'checkoutTime',
+                checkoutAddress: 'checkoutShippingAddress'
+            })
+        },
+
+        components: {
+            appChangeTimeModal: ChangeTimeModal
+        }
     }
 </script>
 

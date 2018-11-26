@@ -3,7 +3,8 @@
 const state = {
     date: {},
     time: {},
-    shippingAddress: {}
+    shippingAddress: {},
+    checkoutPayment: {}
 };
 
 const mutations = {
@@ -18,6 +19,10 @@ const mutations = {
     'SET_SHIPPING_ADDRESS' (state,shippingAddress) {
         console.log(shippingAddress);
         state.shippingAddress = shippingAddress;
+    },
+    'SET_CHECKOUT_PAYMENT' (state,payment) {
+        state.checkoutPayment = payment;
+        console.log("THe payment is set: " + state.checkoutPayment);
     },
 
    /* 'ADD_PAYMENT' (state, payment) {
@@ -49,6 +54,9 @@ const actions = {
     setShippingAddress({commit}, shippingAddress) {
         commit('SET_SHIPPING_ADDRESS', shippingAddress);
     },
+    setCheckoutPayment({commit}, payment) {
+        commit('SET_CHECKOUT_PAYMENT', payment);
+    },
 
    /* deletePayment({commit}){
         console.log('Deleting the: ' +  state.userPaymentSelected);
@@ -74,7 +82,11 @@ const getters = {
 
     checkoutShippingAddress: state => {
         return state.shippingAddress;
-    }
+    },
+
+    checkoutPayment: state => {
+        return state.checkoutPayment;
+    },
 };
 
 export default {

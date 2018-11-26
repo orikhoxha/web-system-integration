@@ -6,6 +6,8 @@
 </template>
 
 <script>
+    import Utils from '../../utils.js';
+
     export default {
         props: ['hour'],
 
@@ -17,8 +19,7 @@
 
         methods: {
             formatTime(hour) {
-                console.log("hour: " + hour);
-                return hour + ':00-' + (hour + 1) + ':00';
+                return Utils.formatTime(hour);
             },
 
             getTime(){
