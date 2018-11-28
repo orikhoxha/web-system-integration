@@ -15,8 +15,7 @@ public class CartItem implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Long qty;
-    private BigDecimal subtotal;
+    private Long quantity;
 
     @OneToOne
     private Item item;
@@ -35,6 +34,10 @@ public class CartItem implements Serializable {
     @JsonIgnore
     private Order order;
 
+    public CartItem(){
+
+    }
+
     public Long getId() {
         return id;
     }
@@ -43,20 +46,12 @@ public class CartItem implements Serializable {
         this.id = id;
     }
 
-    public Long getQty() {
-        return qty;
+    public Long getQuantity() {
+        return quantity;
     }
 
-    public void setQty(Long qty) {
-        this.qty = qty;
-    }
-
-    public BigDecimal getSubtotal() {
-        return subtotal;
-    }
-
-    public void setSubtotal(BigDecimal subtotal) {
-        this.subtotal = subtotal;
+    public void setQuantity(Long quantity) {
+        this.quantity = quantity;
     }
 
     public Item getItem() {
@@ -89,5 +84,16 @@ public class CartItem implements Serializable {
 
     public void setOrder(Order order) {
         this.order = order;
+    }
+
+    @Override
+    public String toString() {
+        return "CartItem{" +
+                "quantity=" + quantity +
+                ", item=" + item +
+                ", itemToCartItemList=" + itemToCartItemList +
+                ", shoppingCart=" + shoppingCart +
+                ", order=" + order +
+                '}';
     }
 }

@@ -82,4 +82,16 @@ public class ShippingAddress implements Serializable {
     public void setInstructions(String instructions) {
         this.instructions = instructions;
     }
+
+    @Override
+    public String toString() {
+        return "ShippingAddress{" +
+                "shippingAddressName='" + shippingAddressName + '\'' +
+                ", shippingAddressStreet1='" + shippingAddressStreet1 + '\'' +
+                ", shippingAddressCity='" + shippingAddressCity + '\'' +
+                ", shippingAddressState='" + shippingAddressState + '\'' +
+                ", shippingAddressZipcode='" + shippingAddressZipcode + '\'' +
+                ", instructions='" + instructions + '\'' +
+                '}';
+    }
 }

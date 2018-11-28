@@ -161,4 +161,23 @@ public class Item implements Serializable {
     public void setBrand(String brand) {
         this.brand = brand;
     }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "id='" + id + '\'' +
+                "description='" + description + '\'' +
+                ", price='" + price + '\'' +
+                ", measurement=" + measurement +
+                ", inStockNumber=" + inStockNumber +
+                ", details='" + details + '\'' +
+                ", ingredients='" + ingredients + '\'' +
+                ", directions='" + directions + '\'' +
+                ", warnings='" + warnings + '\'' +
+                ", department=" + department +
+                ", shelve='" + shelve + '\'' +
+                ", type='" + type + '\'' +
+                ", brand='" + brand + '\'' +
+                '}';
+    }
 }

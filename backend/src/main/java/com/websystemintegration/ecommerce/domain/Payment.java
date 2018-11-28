@@ -83,4 +83,16 @@ public class Payment implements Serializable {
     public void setOrder(Order order) {
         this.order = order;
     }
+
+    @Override
+    public String toString() {
+        return "Payment{" +
+                "type='" + type + '\'' +
+                ", cardNumber='" + cardNumber + '\'' +
+                ", expiryMonthYear='" + expiryMonthYear + '\'' +
+                ", cvc=" + cvc +
+                ", holderName='" + holderName + '\'' +
+                ", order=" + order +
+                '}';
+    }
 }

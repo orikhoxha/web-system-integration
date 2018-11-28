@@ -1,10 +1,13 @@
 package com.websystemintegration.ecommerce.domain;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 public class User implements Serializable {
@@ -22,6 +25,9 @@ public class User implements Serializable {
     private String phone;
 
     private String email;
+
+    @CreationTimestamp
+    private Date created;
 
 
     public String getName() {
@@ -78,6 +84,14 @@ public class User implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
     }
 
     @Override

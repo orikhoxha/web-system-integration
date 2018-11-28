@@ -41,6 +41,8 @@ public class ShoppingCart implements Serializable{
         this.total = total;
     }
 
+
+
     public List<CartItem> getCartItemList() {
         return cartItemList;
     }
@@ -55,5 +57,14 @@ public class ShoppingCart implements Serializable{
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "ShoppingCart{" +
+                "total=" + total +
+                ", cartItemList=" + cartItemList +
+                ", user=" + user +
+                '}';
     }
 }

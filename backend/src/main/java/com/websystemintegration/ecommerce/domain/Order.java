@@ -18,10 +18,15 @@ public class Order implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private Date orderDate;
-    private Date shippingDate;
     private String shippingMethod;
     private String orderStatus;
     private BigDecimal orderTotal;
+
+    @Column(columnDefinition = "text")
+    private String shippingDate;
+
+    @Column(columnDefinition = "text")
+    private String shippingTime;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<CartItem> cartItemList;
@@ -53,13 +58,6 @@ public class Order implements Serializable {
         this.orderDate = orderDate;
     }
 
-    public Date getShippingDate() {
-        return shippingDate;
-    }
-
-    public void setShippingDate(Date shippingDate) {
-        this.shippingDate = shippingDate;
-    }
 
     public String getShippingMethod() {
         return shippingMethod;
@@ -119,5 +117,21 @@ public class Order implements Serializable {
 
     public void setCartItemList(List<CartItem> cartItemList) {
         this.cartItemList = cartItemList;
+    }
+
+    public String getShippingDate() {
+        return shippingDate;
+    }
+
+    public void setShippingDate(String shippingDate) {
+        this.shippingDate = shippingDate;
+    }
+
+    public String getShippingTime() {
+        return shippingTime;
+    }
+
+    public void setShippingTime(String shippingTime) {
+        this.shippingTime = shippingTime;
     }
 }
