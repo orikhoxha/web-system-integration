@@ -11,9 +11,9 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <p class="article-description">{{cartItem.description}}</p>
+                    <p class="article-description">{{cartItem.item.description}}</p>
                 </div>
-                <div class="col-md-4"><span class="article-price">{{cartItem.price}}</span></div>
+                <div class="col-md-4"><span class="article-price">{{cartItem.item.price}}</span></div>
             </div>
         </div>
         <hr>

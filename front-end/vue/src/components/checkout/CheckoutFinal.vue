@@ -115,7 +115,7 @@
                     <p>Want to have an account? Please <a href="">register</a></p>
                 </div>
                 <div class="col-md-6 text-right">
-                    <button class="btn btn-continue">Place Order</button>
+                    <button class="btn btn-continue" @click="checkout">Place Order</button>
                 </div>
             </div>
         </div>
@@ -141,7 +141,7 @@
                 checkoutAddress: 'checkoutShippingAddress',
                 checkoutPayment: 'checkoutPayment',
                 totalPriceAdded: 'totalPriceAdded',
-                cartItems: 'cartItems'
+                cartItems: 'cartItemList',
             }),
 
         },
@@ -150,6 +150,35 @@
             appChangeTimeModal: ChangeTimeModal,
             appChangePaymentModal: ChangePaymentModal,
             appCheckoutFinalCart: CheckoutFinalCart
+        },
+
+        methods: {
+            checkout() {
+                const formData = {
+                    shoppingCart: {
+                        total: this.totalPriceAdded
+                    },
+                    cartItemList: this.cartItems,
+                    payment: this.checkoutPayment,
+                    shippingAddress: this.checkoutAddress,
+                    shippingDate: this.checkoutDate.dayString +  " " +  this.checkoutDate.month +   " " + this.checkoutDate.dayInt +  " " +  this.checkoutDate.date ,
+                    shippingTime: this.checkoutTime
+                };
+
+                console.log(formData);
+
+                this.$store.dispatch('checkoutOrder', formData)
+            }
+          /*
+    private BigDecimal total;
+
+    @OneToMany(mappedBy = "shoppingCart", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
+    private List<CartItem> cartItemList;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JsonIgnore
+    private User user;*/
         }
     }
 </script>

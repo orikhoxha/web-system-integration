@@ -1,4 +1,4 @@
-//import UserPaymentsService from '../../service/userPayments/UserPaymentsService.js';
+import CheckoutService from '../../service/checkout/CheckoutService.js';
 
 const state = {
     date: {},
@@ -24,6 +24,9 @@ const mutations = {
         state.checkoutPayment = payment;
         console.log("THe payment is set: " + state.checkoutPayment);
     },
+    'CHECKOUT_ORDER' (state,checkout) {
+        CheckoutService.postCheckout(checkout)
+    }
 
    /* 'ADD_PAYMENT' (state, payment) {
         console.log(payment);
@@ -57,6 +60,10 @@ const actions = {
     setCheckoutPayment({commit}, payment) {
         commit('SET_CHECKOUT_PAYMENT', payment);
     },
+
+    checkoutOrder({commit}, checkout){
+        commit('CHECKOUT_ORDER', checkout)
+    }
 
    /* deletePayment({commit}){
         console.log('Deleting the: ' +  state.userPaymentSelected);

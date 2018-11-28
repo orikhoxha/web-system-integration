@@ -33,7 +33,7 @@
 
         computed: {
             cartItems(){
-                return this.$store.getters.cartItems;
+                return this.$store.getters.cartItemList;
             },
 
             totalItems(){

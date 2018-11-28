@@ -8,8 +8,8 @@
                                 <span class="tile-image-quantity">{{cartItem.quantity}}</span>
                             </span>
         </div>
-        <div class="col-md-8">{{cartItem.description}}</div>
-        <div class="col-md-2">{{cartItem.price}}</div>
+        <div class="col-md-8">{{cartItem.item.description}}</div>
+        <div class="col-md-2">{{cartItem.item.price}}</div>
     </div>
 </template>
 

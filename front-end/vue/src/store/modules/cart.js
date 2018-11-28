@@ -4,7 +4,6 @@ const state = {
     cartItems: []
 };
 
-
 const mutations = {
     'ADD_ITEM_CART'(state, {itemId, quantity, price, description}){
         const record = state.cartItems.find(element => element.id === itemId);
@@ -14,8 +13,12 @@ const mutations = {
             state.cartItems.push({
                 id: itemId,
                 quantity: quantity,
-                description: description,
-                price: price,
+                item: {
+                    id: itemId,
+                    description: description,
+                    price: price,
+                }
+
             })
 
         }
@@ -33,16 +36,19 @@ const actions = {
 };
 
 const getters = {
-    cartItems(state, getters) {
-        return state.cartItems.map(item => {
+    cartItemList(state, getters) {
+        const arrayMap = state.cartItems.map(item => {
             const record = getters.items.find(element => element.id === item.id);
             return {
-                id: item.id,
                 quantity: item.quantity,
-                name: record.description,
-                price: record.price
+                item: {
+                    id: item.id,
+                    description: record.description,
+                    price: record.price
+                }
             }
-        })
+        });
+        return Array.from(arrayMap.values());
     },
     totalItems(state) {
         return state.totalItems;
