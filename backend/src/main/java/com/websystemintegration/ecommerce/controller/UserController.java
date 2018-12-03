@@ -42,25 +42,13 @@ public class UserController {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<Object> updateUser(@RequestBody User User, @PathVariable Long id) {
+    public User updateUser(@PathVariable Long id, @RequestBody User user) {
 
         User theUser = userService.findOne(id);
         if(null == theUser){
-            return ResponseEntity.notFound().build();
+            return null;
         }
-        User.setId(id);
-        userService.save(User);
-        return ResponseEntity.noContent().build();
-    }
-
-    @GetMapping(value = "/{id}")
-    public ResponseEntity<User> updateUser( @PathVariable Long id) {
-
-        User theUser = userService.findOne(id);
-        if(null == theUser){
-            return ResponseEntity.notFound().build();
-        }
-        return new ResponseEntity<>(theUser, HttpStatus.OK);
+        return userService.save(user);
     }
 
     @GetMapping(value = "/payments")
@@ -101,5 +89,16 @@ public class UserController {
     public ResponseEntity<?> deleteUserShipping(@PathVariable Long userId, @PathVariable Long userShippingId){
         userShippingService.removeUserShipping(userShippingId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @PostMapping(value = "/login")
+    public ResponseEntity<?> loginUser(@RequestBody User user){
+        logger.info("The user before: " + user);
+        User theUser = userService.findByUsernamePassword(user.getUsername(), user.getPassword());
+        logger.info("The user: " + theUser);
+        if(null == theUser){
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
+        return new ResponseEntity<>(theUser, HttpStatus.OK);
     }
 }

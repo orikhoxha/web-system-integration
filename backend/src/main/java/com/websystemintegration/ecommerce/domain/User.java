@@ -1,5 +1,6 @@
 package com.websystemintegration.ecommerce.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.Entity;
@@ -18,7 +19,6 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    private String lastName;
 
     private String username;
     private String password;
@@ -27,6 +27,7 @@ public class User implements Serializable {
     private String email;
 
     @CreationTimestamp
+    @JsonIgnore
     private Date created;
 
 
@@ -38,13 +39,6 @@ public class User implements Serializable {
         this.name = name;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
     public String getUsername() {
         return username;
@@ -99,7 +93,6 @@ public class User implements Serializable {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", lastName='" + lastName + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", phone='" + phone + '\'' +

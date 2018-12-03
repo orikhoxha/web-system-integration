@@ -57,9 +57,10 @@ public class CheckoutController {
 
 
         logger.info("getting in here");
-        User u = userService.findOne(new Long(1));
 
         ObjectMapper objectMapper = new ObjectMapper();
+
+        User u = userService.findOne(objectMapper.convertValue(mapper.get("user"), User.class).getId());
 
         ShippingAddress shippingAddress = objectMapper.convertValue(mapper.get("shippingAddress"), ShippingAddress.class);
         ShoppingCart shoppingCart = objectMapper.convertValue(mapper.get("shoppingCart"), ShoppingCart.class);
