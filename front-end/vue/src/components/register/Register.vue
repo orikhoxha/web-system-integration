@@ -6,22 +6,22 @@
         </div>
 
         <div class="register-form shadow">
-            <form @submit.prevent="handleSubmit" id="register-form">
+            <form  @submit.prevent="onSubmit" id="register-form">
                 <div class="form-group relative mb-0">
                     <label for="name" class="text-center" >Name*</label>
-                    <input type="text" id="name" class="form-control mx-auto" placeholder="Name">
+                    <input type="text" id="name" class="form-control col-md-offset-1" placeholder="Name" v-model="name">
                 </div>
                 <div class="form-group relative mb-0">
                     <label for="username" class="text-center" >Username</label>
-                    <input type="text" id="username" class="form-control mx-auto" placeholder="username">
+                    <input type="text" id="username" class="form-control col-md-offset-1" placeholder="username" v-model="username">
                 </div>
                 <div class="form-group relative mb-0">
                     <label for="email" class="text-center" >Email</label>
-                    <input type="text" id="email" class="form-control mx-auto" placeholder="email">
+                    <input type="text" id="email" class="form-control col-md-offset-1" placeholder="email" v-model="email">
                 </div>
                 <div class="form-group relative mb-0">
                     <label for="password">Password</label>
-                    <input type="password" id="password" class="form-control mx-auto" placeholder="password">
+                    <input type="password" id="password" class="form-control col-md-offset-1" placeholder="password" v-model="password">
                 </div>
                 <div class="text-center mt-3">
                     <button type="submit" class="btn login-btn">Create Account</button>
@@ -37,11 +37,41 @@
 
 <script>
     export default {
-        methods: {
-            handleSubmit() {
-                this.$router.push('/home');
+
+        data() {
+            return {
+                name: '',
+                username: '',
+                email: '',
+                password: ''
             }
-        }
+        },
+
+        methods: {
+            onSubmit() {
+                const formData = {
+                    name: this.name,
+                    username: this.username,
+                    email: this.email,
+                    password: this.password
+                };
+
+                this.$awn.su
+
+                setTimeout(() =>{
+                    console.log("execute now");
+                    this.$store.dispatch('registerUser', formData);
+                    this.$router.push("/");
+                }, 3000);
+
+                /*this.$store.dispatch('registerUser', formData);
+                this.$router.push("/");*/
+            }
+        },
+
+        beforeCreate(){
+            this.$store.dispatch("changeHeader", false);
+        },
     }
 </script>
 

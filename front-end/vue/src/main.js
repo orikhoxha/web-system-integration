@@ -3,9 +3,10 @@ import VueRouter from 'vue-router';
 import App from './App.vue'
 import { routes } from "./routes";
 import store from './store/store.js';
+import VueAWN from "vue-awesome-notifications"
 
 Vue.use(VueRouter);
-
+Vue.use(VueAWN);
 
 const router = new VueRouter({
     mode: 'history',

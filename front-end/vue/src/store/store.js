@@ -6,6 +6,7 @@ import cart from './modules/cart.js';
 import payment from './modules/payment.js';
 import shipping from './modules/shipping.js';
 import checkout from './modules/checkout.js';
+import user from './modules/user.js';
 
 Vue.use(Vuex);
 
@@ -16,7 +17,7 @@ export default new Vuex.Store({
         cart: cart,
         payment: payment,
         shipping: shipping,
-        checkout: checkout
-
+        checkout: checkout,
+        user: user
     }
 });

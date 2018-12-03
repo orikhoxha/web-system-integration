@@ -12,16 +12,17 @@
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#" type="button"  data-toggle="modal" data-target=".add-change-address-modal"><i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;Delivery in 3306</a></li>
-                        <li class="dropdown">
+                        <li class="dropdown" v-if="userLoggedIn">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
                             <ul class="dropdown-menu custom-dropdown">
-                                <li><a href="#" class="account-dropdown-name">Hi, <span>Orik</span></a></li>
+                                <li><a href="#" class="account-dropdown-name">Hi, <span>{{userLoggedIn.username}}</span></a></li>
                                 <router-link to="/account" tag="li"><a><i class="far fa-user-circle"></i>&nbsp;&nbspYour Account</a></router-link>
                                 <router-link to="/account/orders" tag="li"><a><i class="fas fa-align-justify"></i>&nbsp;&nbsp;Orders</a></router-link>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Logout</a></li>
+                                <li @click="logout"><a ><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Logout</a></li>
                             </ul>
                         </li>
+                        <router-link tag="li" to="/login" v-else><a><i class="fas fa-sign-in-alt"></i>&nbsp;&nbsp;Sign into your account</a></router-link>
                     </ul>
                 </div>
             </div>
@@ -39,7 +40,7 @@
         </div>
         <div class="container-fluid tabs text-center">
             <ul>
-                <router-link to="/" tag="li"><a href="#">Home</a></router-link>
+                <router-link to="/" tag="li" @click="console.log('clicked')"><a href="#">Home</a></router-link>
                 <router-link to="/departments" tag="li"><a href="#">Departments</a></router-link>
                 <router-link to="/favourites" tag="li"><a href="#">Favourites</a></router-link>
             </ul>
@@ -56,11 +57,19 @@
     export default {
         components: {
             appChangeAddressModal: ChangeAddressModal
+        },
+
+        computed: {
+            userLoggedIn() {
+                return this.$store.getters.userLoggedIn;
+            }
+        },
+
+        methods: {
+            logout(){
+                this.$store.dispatch('removeUserLogout');
+                this.$router.push("/login");
+            }
         }
     }
-
 </script>
-
-<style scoped>
-
-</style>

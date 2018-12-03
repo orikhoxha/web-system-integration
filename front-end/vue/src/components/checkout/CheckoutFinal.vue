@@ -142,6 +142,7 @@
                 checkoutPayment: 'checkoutPayment',
                 totalPriceAdded: 'totalPriceAdded',
                 cartItems: 'cartItemList',
+                user: 'userLoggedIn'
             }),
 
         },
@@ -162,23 +163,19 @@
                     payment: this.checkoutPayment,
                     shippingAddress: this.checkoutAddress,
                     shippingDate: this.checkoutDate.dayString +  " " +  this.checkoutDate.month +   " " + this.checkoutDate.dayInt +  " " +  this.checkoutDate.date ,
-                    shippingTime: this.checkoutTime
+                    shippingTime: this.checkoutTime,
+                    user: this.userLoggedIn
                 };
 
                 console.log(formData);
 
-                this.$store.dispatch('checkoutOrder', formData)
+                if(this.userLoggedIn === null){
+                    this.$router.push("/login");
+                }else{
+                    console.log("The user: " + this.userLoggedIn );
+                    this.$store.dispatch('checkoutOrder', formData)
+                }
             }
-          /*
-    private BigDecimal total;
-
-    @OneToMany(mappedBy = "shoppingCart", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonIgnore
-    private List<CartItem> cartItemList;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JsonIgnore
-    private User user;*/
         }
     }
 </script>

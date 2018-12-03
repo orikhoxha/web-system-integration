@@ -9,9 +9,7 @@
             <router-link to="/account/customers" tag="li"><a><i class="fas fa-users icons-nav"></i>Customers</a></router-link>
             <router-link tag="li" to="/account/items/list" replace><a><i class="fas fa-sitemap icons-nav"></i>Items</a></router-link>
             <router-link tag="li" to="/account/departments/list" replace><a><i class="fas fa-vector-square icons-nav"></i>Departments</a></router-link>
-            <router-link tag="li" to="/login" replace><a><i class="fas fa-sign-out-alt icons-nav"></i>Log out</a></router-link>
-
-
+            <li @click="logout" style="cursor: pointer"><a><i class="fas fa-sign-out-alt icons-nav"></i>Log out</a></li>
 
         </ul>
     </nav>
@@ -19,6 +17,13 @@
 
 <script>
     export default {
+
+        methods: {
+            logout(){
+                this.$store.dispatch('removeUserLogout');
+                this.$router.push("/login");
+            }
+        }
     }
 </script>
 

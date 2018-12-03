@@ -49,4 +49,4 @@ export const routes = [
             { path: '/departments/newDepartment', component: DepartmentAdd},
             { path: '/departments/:id', component: ItemEdit, name:'departmentEdit'},
             ]},
-]
+];

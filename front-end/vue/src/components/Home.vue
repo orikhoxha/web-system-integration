@@ -22,7 +22,12 @@
         created() {
             this.$store.dispatch('initItems');
             this.$store.dispatch('initDepartments');
-        }
+        },
+
+        beforeCreate(){
+            this.$store.dispatch("changeHeader", true);
+        },
+
 
     }
 </script>
