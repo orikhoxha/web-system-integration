@@ -12,7 +12,7 @@ services:
  
   mysql:
    container_name: some-mysql
-   image: mysql/mysql-server:5.7
+   image: mysql1
    environment:
     MYSQL_DATABASE: ecommerce
     MYSQL_ROOT_PASSWORD: orikorik
@@ -33,4 +33,4 @@ services:
     command: mvn clean spring-boot:run
     depends_on:
       - nginx
-      - mysql
+      - mysql-server  
