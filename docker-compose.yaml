@@ -34,9 +34,3 @@ services:
     depends_on:
       - nginx
       - mysql
-    environment: 
-      - DATABASE_HOST: mysql
-      - DATABASE_USER: root
-      - DATABASE_PASSWORD: orikorik
-      - DATABASE_NAME: ecommerce
-      - DATABASE_PORT: 3306
