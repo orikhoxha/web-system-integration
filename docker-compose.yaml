@@ -16,7 +16,7 @@ services:
    environment:
     MYSQL_DATABASE: ecommerce
     MYSQL_ROOT_PASSWORD: 
-    MYSQL_ROOT_HOST: '%'
+    MYSQL_ROOT_HOST: root
    ports:
    - "3306:3306"
    restart: always
