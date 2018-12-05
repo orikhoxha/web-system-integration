@@ -9,6 +9,8 @@ services:
    - 443:443
    volumes:
    - ./nginx/conf.d:/etc/nginx/conf.d
+   depends_on:
+      - app
  
   mysql:
    container_name: mysql1
