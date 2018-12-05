@@ -15,10 +15,6 @@ services:
   mysql:
    container_name: mysql1
    image: mysql/mysql-server:5.7
-   environment:
-    MYSQL_DATABASE: ecommerce
-    MYSQL_ROOT_PASSWORD: orikorik
-    MYSQL_USER: root
    ports:
    - 3306:3306
    restart: always
