@@ -34,5 +34,4 @@ services:
       - 8080
     command: mvn clean spring-boot:run
     depends_on:
-      - nginx
       - mysql
