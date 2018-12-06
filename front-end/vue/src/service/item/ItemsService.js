@@ -25,7 +25,7 @@ export default {
         //formData.append('imageName', id + '_' + image.filename);
         //const headers = {'content-type': 'multipart/form-data'};
         //Api().post('/items/file/upload', formData);
-        axios.post('http://localhost:8082/api/items/file/upload', formData, {
+        axios.post('http://limestone.sat.iit.edu/api/items/file/upload', formData, {
             headers: {'Content-Type': 'multipart/form-data'}
         })
     }
