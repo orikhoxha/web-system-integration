@@ -7,6 +7,8 @@
 <script>
     import Item from './Item.vue';
     export default {
+
+        /* Mockup used to test before the actuall calls on REST API. Not implemented yet. */
         data() {
             return {
                 items: [

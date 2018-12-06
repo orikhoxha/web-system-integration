@@ -29,6 +29,8 @@
 
 <script>
     export default {
+
+        /* Initialize form data */
         data() {
             return {
                 username: '',
@@ -37,6 +39,7 @@
         },
 
         methods: {
+            /* Prevent default submit. Send the form to the vuex store, further to the User REST API */
             onSubmit() {
                 const formData = {
                     username: this.username,
@@ -47,6 +50,8 @@
             }
         },
 
+
+        /* Remove the common header if it's the login page */
         beforeCreate(){
             this.$store.dispatch("changeHeader", false);
         },

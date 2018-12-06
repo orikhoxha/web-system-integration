@@ -18,10 +18,12 @@
         },
 
         methods: {
+            /* Format the hour is desired format. Method check in Utils.js */
             formatTime(hour) {
                 return Utils.formatTime(hour);
             },
 
+            /* Submit the time to the vuex store */
             getTime(){
                 this.isActive = true;
                 console.log(this.hour);

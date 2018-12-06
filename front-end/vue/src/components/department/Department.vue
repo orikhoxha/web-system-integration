@@ -23,6 +23,7 @@
     import SubDepartments from './SubDepartment.vue';
     export default {
         props: ['department'],
+        /* Get subdepartments for a department */
         components: {
             appSubDepartments: SubDepartments
         }

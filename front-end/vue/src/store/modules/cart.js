@@ -4,7 +4,9 @@ const state = {
     cartItems: []
 };
 
+/* Update the state for the items */
 const mutations = {
+
     'ADD_ITEM_CART'(state, {itemId, quantity, price, description}){
         const record = state.cartItems.find(element => element.id === itemId);
         if(record){
@@ -27,6 +29,8 @@ const mutations = {
     },
 };
 
+
+/* Makes call to the mutations. The action is run asynchronously */
 const actions = {
     addItemCart({commit}, item) {
         console.log("the item: " + item.description);
@@ -35,6 +39,8 @@ const actions = {
     }
 };
 
+
+/* Getters offer access to all application for the cart data. */
 const getters = {
     cartItemList(state, getters) {
         const arrayMap = state.cartItems.map(item => {

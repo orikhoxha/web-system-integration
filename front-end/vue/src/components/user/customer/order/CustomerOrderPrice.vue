@@ -33,6 +33,7 @@
         props: ['priceDetails'],
 
 
+        /* Calculate the subtotal by removing 6% from the final price */
         computed: {
             calculateSubtotal(){
                 return (this.priceDetails * 0.94).toFixed(2);

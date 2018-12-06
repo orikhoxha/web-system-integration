@@ -14,6 +14,8 @@
 </template>
 
 <script>
+
+    /* Single cart item */
     export default {
         props: ['cartItem']
     }

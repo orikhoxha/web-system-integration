@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+
+/* Filtering the json web token */
 public class JsonWebTokenFilter extends GenericFilterBean {
 
 
@@ -23,14 +25,19 @@ public class JsonWebTokenFilter extends GenericFilterBean {
         final HttpServletResponse response = (HttpServletResponse) servletResponse;
         final String authHeader = request.getHeader("authorizaiton");
 
+
+        /* If request OPTIONS continue */
         if("OPTIONS".equals(request.getMethod())){
             response.setStatus(HttpServletResponse.SC_OK);
             filterChain.doFilter(servletRequest,servletResponse);
         }else {
+
+            /* Check for the authentication header */
             if(authHeader == null || !authHeader.startsWith("Bearer ")){
                 throw new ServletException("Missing or invalid Authorization header");
             }
 
+            /* Parse the json web token */
             final String token = authHeader.substring(7);
             try{
                 final Claims claims = Jwts.parser().setSigningKey("secretkey").parseClaimsJws(token).getBody();

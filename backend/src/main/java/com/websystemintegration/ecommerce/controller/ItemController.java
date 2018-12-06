@@ -13,6 +13,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
+
+/* API for item REST CRUD. Calls the service helper class for data manipulation */
 @RestController
 @RequestMapping("/api/items")
 public class ItemController {
@@ -25,11 +27,15 @@ public class ItemController {
     @Autowired
     private ItemImageService itemImageService;
 
+
+    /* Accepts an Item object, returns a new object with id assigned */
     @PostMapping(value = "/")
     public Item addItem(@RequestBody Item item) {
         return itemService.save(item);
     }
 
+
+    /* Accepts a file, uses the imageService for saving the file, returs CREATED status */
     @PostMapping("/file/upload")
     public ResponseEntity<?> uploadMultipartFile(@RequestParam("file") MultipartFile file) {
         try {
@@ -47,6 +53,8 @@ public class ItemController {
         return itemService.findAll();
     }
 
+
+    /* Accepts the item, and the id, returns no content on update. The local update in frontend is already handled by vuex */
     @PutMapping(value = "/{id}")
     public ResponseEntity<Object> updateItem(@RequestBody Item item, @PathVariable Long id) {
 
@@ -62,7 +70,7 @@ public class ItemController {
 
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Item> updateItem( @PathVariable Long id) {
+    public ResponseEntity<Item> singleItem( @PathVariable Long id) {
 
         Item theItem = itemService.findOne(id);
         if(null == theItem){

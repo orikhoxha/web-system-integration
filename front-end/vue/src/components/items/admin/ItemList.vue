@@ -41,6 +41,7 @@
             appItemSearch: ItemSearch
         },
 
+        /* Get the list of items from the vuex getters */
         computed: {
             items(){
                 return this.$store.getters.items;

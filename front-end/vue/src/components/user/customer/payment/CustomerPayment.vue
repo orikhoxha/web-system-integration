@@ -22,6 +22,8 @@
     export default {
         props: ['userPayment'],
         methods: {
+
+            /* Set the user selected payment in the vuex store  */
             setSelectedUserPayment(){
                 console.log("User id selected: "  + this.userPayment.id);
                 this.$store.dispatch('paymentSelected',this.userPayment.id);

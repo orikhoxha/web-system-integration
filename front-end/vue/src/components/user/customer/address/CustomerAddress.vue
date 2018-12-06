@@ -22,6 +22,8 @@
     export default {
         props: ['userShipping'],
         methods: {
+            /* Set the user selected shipping. Save the id in the vuex store, so when the user wants
+             * to delete, vue js knows which shipping address to delete */
             setSelectedUserShipping(){
                 console.log("User id selected: "  + this.userShipping.id);
                 this.$store.dispatch('shippingSelected',this.userShipping.id);

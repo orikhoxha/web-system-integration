@@ -1,6 +1,8 @@
 import Api from '../Api.js'
 import  axios from 'axios';
 
+
+/* Items Service. Makes REST Calls to backend */
 export default {
     getItems(){
         return Api().get('/items/')

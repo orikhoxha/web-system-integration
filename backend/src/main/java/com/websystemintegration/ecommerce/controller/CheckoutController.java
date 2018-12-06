@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.*;
 
+
+/* Checkout controller. Contains the REST endpoints for the order placement. */
 @RestController
 @RequestMapping("/api/checkout")
 public class CheckoutController {
@@ -52,6 +54,9 @@ public class CheckoutController {
 
 
 
+
+    /* Accepts a number of objects as: user,shippingAddress, shoppingCart, payment, cartItemList  */
+    /* Returns the new order placed */
     @PostMapping
     public Order checkoutPost(@RequestBody HashMap<String, Object> mapper){
 

@@ -24,6 +24,7 @@
             this.$store.dispatch('initDepartments');
         },
 
+        /* Load the header when the home page is active */
         beforeCreate(){
             this.$store.dispatch("changeHeader", true);
         },

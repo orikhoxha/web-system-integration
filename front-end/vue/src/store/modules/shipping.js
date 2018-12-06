@@ -5,6 +5,8 @@ const state = {
     userShippingSelected: ''
 };
 
+
+/* Set the userShipping, userShippingSelected accordingly */
 const mutations = {
     'SET_SHIPPINGS' (state,shippings) {
         state.userShipping = shippings;
@@ -30,6 +32,7 @@ const mutations = {
     }
 };
 
+/* Set the shippings by calling the REST API-s */
 const actions = {
     initShippings: ({commit, getters}) => {
         userShippingService.getUserShippings(getters.userLoggedIn.id)
@@ -57,6 +60,8 @@ const actions = {
     }
 };
 
+
+/* Allow user shippings access */
 const getters = {
     userShippings: state => {
         return state.userShipping;

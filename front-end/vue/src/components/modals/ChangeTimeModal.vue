@@ -43,6 +43,8 @@
     import CheckoutTime from '../checkout/CheckoutTime.vue';
     export default {
 
+
+        /* Initialize the days, hours to be selected by User */
         data() {
             return {
                 days: [],
@@ -50,11 +52,13 @@
             }
         },
 
+        /* Go to checkoutfinal */
         methods: {
             checkoutFinal() {
                 this.$router.push('/checkoutFinal');
             },
 
+            /* Call the utils for initializing the hours and days */
             /* Util */
             setHours() {
                 this.hours = Utils.setHours();
@@ -66,6 +70,7 @@
             },
         },
 
+        /* Call methods before the component is created */
         created() {
             this.setDays();
             this.setHours();

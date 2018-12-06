@@ -24,6 +24,8 @@ import ItemAdd from './components/items/admin/ItemAdd.vue';
 import DepartmentList from './components/department/admin/DepartmentList.vue';
 import DepartmentAdd from './components/department/admin/DepartmentAdd.vue';
 
+
+/* Routes that make the SPA */
 export const routes = [
     { path: '/', component: Home, alias: '/home', children: [
             { path: '/', component: Items},

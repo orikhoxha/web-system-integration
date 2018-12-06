@@ -159,6 +159,8 @@
     import {mapGetters} from 'vuex';
     export default {
 
+
+        /* Initialize form data */
         data() {
             return {
                 email: '',
@@ -171,6 +173,7 @@
         },
 
         methods: {
+            /* Prevent default submit. Check if the inputs have been changed. If yes, update accordingly. Calls the vuex store */
             onSubmit(){
                 const formData = {
                     id: this.theUser.id,
@@ -187,12 +190,15 @@
             }
         },
 
+        /* Get the user logged in from the vuex store */
         computed: {
             ...mapGetters({
               theUser: 'userLoggedIn'
             })
         },
 
+
+        /* Before leaving the page, call the vuex store, further api for changing the data in the database */
         beforeRouteLeave(to, from, next){
             if(this.dataChanged){
                 this.$store.dispatch('updateUser');

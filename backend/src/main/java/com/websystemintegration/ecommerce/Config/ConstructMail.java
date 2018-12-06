@@ -16,6 +16,8 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Locale;
 
+
+/*Component for constructing the email when order is purchased */
 @Component
 public class ConstructMail {
 
@@ -27,6 +29,7 @@ public class ConstructMail {
 
 
 
+    /* Using the orderConfirmationEmailTemplate for email html template creation */
     public MimeMessagePreparator constructOrderConfirmationEmail (User user, Order order, Locale locale) {
         Context context = new Context();
         context.setVariable("order", order);

@@ -1,6 +1,7 @@
 import Api from '../Api.js'
 import  axios from 'axios';
 
+/* User shipping service. Makes REST Calls to backend */
 export default {
     getUserShippings(userId){
         return Api().get('/users/' + userId + '/shippings/');

@@ -50,6 +50,8 @@
 
 <script>
     export default {
+
+        /* Item form data initialize */
         data() {
             return {
                 description: '',
@@ -67,6 +69,7 @@
         },
 
         methods: {
+            /* Prevent submit of the form. Send the data to vuex, further to the Item service API */
             onSubmit() {
                 const formData = {
                     image: this.selectedFile,
@@ -85,6 +88,7 @@
                 this.$store.dispatch('addItem',formData);
             },
 
+            /* Set the file when it's selected */
             onFileSelected(event) {
                 this.selectedFile = event.target.files[0];
             },

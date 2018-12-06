@@ -1,6 +1,7 @@
 import Api from '../Api.js'
 import  axios from 'axios';
 
+/* User payments service. Makes REST Calls to backend */
 export default {
     getUserPayments(userId){
         return Api().get('/users/' + userId + '/payments/');

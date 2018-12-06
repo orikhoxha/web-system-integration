@@ -9,6 +9,8 @@ import java.util.List;
 public interface OrderService {
     Order save(Order order, List<CartItem> cartItemList);
 
+    Order save(Order order);
+
     List<Order> getUserOrders(User user);
 
 }

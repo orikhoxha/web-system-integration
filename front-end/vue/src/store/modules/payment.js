@@ -5,6 +5,7 @@ const state = {
     userPaymentSelected: ''
 };
 
+/* Set the userPayments, userPaymentSelected accordingly */
 const mutations = {
     'SET_PAYMENTS' (state,payments) {
         state.userPayments = payments;
@@ -28,6 +29,8 @@ const mutations = {
     }
 };
 
+
+/* Set the userPayments, userPaymentSelected by calling the REST API-s */
 const actions = {
     initPayments: ({commit, getters}) => {
         UserPaymentsService.getUserPayments(getters.userLoggedIn.id)
@@ -55,6 +58,7 @@ const actions = {
     }
 };
 
+/* Allow accees to  the user payments */
 const getters = {
     userPayments: state => {
         return state.userPayments;

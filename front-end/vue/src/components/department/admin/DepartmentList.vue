@@ -39,6 +39,7 @@
             appDepartmentSearch: DepartmentSearch
         },
 
+        /* Get the departments from the vuex store */
         computed: {
             departments(){
                 return this.$store.getters.departments;

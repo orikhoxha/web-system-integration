@@ -59,12 +59,14 @@
             appChangeAddressModal: ChangeAddressModal
         },
 
+        /* Get user logged in */
         computed: {
             userLoggedIn() {
                 return this.$store.getters.userLoggedIn;
             }
         },
 
+        /* Call the logout from the vuex store. Sets the user loggedin to null or undefined */
         methods: {
             logout(){
                 this.$store.dispatch('removeUserLogout');

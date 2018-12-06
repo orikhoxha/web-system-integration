@@ -56,6 +56,8 @@
 
 <script>
     export default {
+
+        /* Form data initialize */
         data() {
             return {
                 shippingAddressName: '',
@@ -68,6 +70,8 @@
         },
 
         methods: {
+
+            /* Prevent default submit. Send the data to vuex, further to the address API. */
             onSubmit() {
                 const formData = {
                     shippingAddressName: this.shippingAddressName,

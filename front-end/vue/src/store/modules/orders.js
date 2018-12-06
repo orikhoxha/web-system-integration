@@ -4,12 +4,15 @@ const state = {
     userOrders: [],
 };
 
+/* Set the userOrders accordingly */
 const mutations = {
     'SET_ORDERS' (state,orders) {
         state.userOrders = orders;
     },
 };
 
+
+/* Set the user orders by calling the REST API-s */
 const actions = {
     initOrders: ({commit, getters}) => {
         UserOrdersService.getUserOrders(getters.userLoggedIn.id)

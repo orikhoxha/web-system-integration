@@ -35,6 +35,7 @@
             appAddAddressModal: AddAddressModal
         },
 
+        /* Initialize form data */
         data(){
             return {
              userShippingStreet1: '',
@@ -47,12 +48,15 @@
             }
         },
 
+
+        /* Initialize the shippings before the component is created */
         beforeCreate(){
             this.$store.dispatch('initShippings');
         },
 
 
         methods: {
+            /* Prevent default submit. Submit the data to the vuex store, further to the shipping service */
             onSubmit(){
                 const formData = {
                     userShippingStreet1: this.userShippingStreet1,
@@ -67,11 +71,13 @@
                 this.$store.dispatch('addShipping',formData);
             },
 
+            /* Delete the shipping selected. */
             deleteShipping() {
                 this.$store.dispatch('deleteShipping');
             }
         },
 
+        /* Get the user shippings from the vuex store getters */
         computed: {
             userShippings(){
                 return this.$store.getters.userShippings;

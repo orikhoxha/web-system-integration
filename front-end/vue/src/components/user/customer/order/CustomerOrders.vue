@@ -14,6 +14,7 @@
             appCustomerOrder: CustomerOrder
         },
 
+        /* Get the orders from the vuex store before the vue component is created */
         beforeCreate(){
             this.$store.dispatch('initOrders');
         },

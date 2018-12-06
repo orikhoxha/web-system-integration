@@ -19,11 +19,13 @@
         },
 
         methods: {
+            /* Format the date to show in the vue component */
             formatDate(date) {
                 if(date.dayString === 'Today') return date.dayString;
                 return date.dayString + ', ' + date.month+ ' ' + date.dayInt;
             },
 
+            /* Send the date form to the vuex store */
             getDate(){
                 this.isActive = true;
                 console.log(this.date);

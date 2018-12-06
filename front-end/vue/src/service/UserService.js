@@ -1,6 +1,7 @@
 import axios from "axios/index";
 import Api from "./Api";
 
+/* User Service. Makes REST Calls to backend */
 export default {
     getUsers(){
         return Api().get('/users/')

@@ -4,6 +4,7 @@ const state = {
     items: []
 };
 
+/* Set the items accordingly */
 const mutations = {
     'SET_ITEMS' (state,items) {
         state.items = items;
@@ -13,12 +14,9 @@ const mutations = {
             item
         })
     },
-    /*'DELETE_STOCK' (state, {id}){
-        const record = state.items.find(element => element.id === id);
-        state.items.splice(state.items.indexOf(record), 1);
-    }*/
 };
 
+/* Set the items by calling the REST API-s */
 const actions = {
     initItems: ({commit}) => {
         ItemsService.getItems()
@@ -34,6 +32,7 @@ const actions = {
     }
 };
 
+/* Allow accees to  the items */
 const getters = {
     items: state => {
         return state.items;

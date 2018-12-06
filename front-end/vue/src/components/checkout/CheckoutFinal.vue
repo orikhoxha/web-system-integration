@@ -134,6 +134,8 @@
     import ChangePaymentModal from '../modals/ChangePaymentModal.vue';
     import CheckoutFinalCart from './CheckoutFinalCart.vue';
     export default {
+
+        /* Map all the getters from vuex for direct access */
         computed: {
             ...mapGetters({
                 checkoutDate: 'checkoutDate',
@@ -154,6 +156,7 @@
         },
 
         methods: {
+            /* Get input filelds and submit to vuex store */
             checkout() {
                 const formData = {
                     shoppingCart: {

@@ -166,6 +166,8 @@
 <script>
     import ItemsService from '../../service/item/ItemsService.js';
     export default {
+
+        /* Initialize the form data for Item */
         data(){
             return {
                 itemId: this.$route.params.id,
@@ -179,12 +181,15 @@
             }
         },
 
+
+        /* Call the getItemDetails when the component is mounted */
         mounted(){
             this.getItemDetails(this.itemId)
         },
 
         methods: {
 
+            /* Directly make call to the service rest api for getting a single item */
             async getItemDetails(params) {
                 const response = await ItemsService.getItem(params);
                 console.log(response);
@@ -198,6 +203,7 @@
             },
 
             /* Utils */
+            /* Get the two parts of the price */
             getPriceDetail(n){
                 return this.price.split(",")[n];
             },

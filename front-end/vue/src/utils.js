@@ -1,5 +1,7 @@
 export default {
 
+
+    /* Group the values by key. Used for grouping the departments into main departments */
     groupBy(objectArray, property){
         let accumulate = objectArray.reduce(function(acc, obj){
             let key = obj[property];
@@ -18,6 +20,8 @@ export default {
         return arr;
     },
 
+
+    /* Set the hours for selection on time date */
     setHours() {
         let hours = [];
         let hoursMax = 20;
@@ -37,6 +41,8 @@ export default {
 
     },
 
+
+    /* Set the days for selection on time date */
     setDays() {
         let days = [];
         let startDate = new Date();
@@ -61,6 +67,7 @@ export default {
         return days;
     },
 
+    /* Get the day in string */
     getDayString(dayNumber) {
         switch(dayNumber){
             case 0: return "Sunday";

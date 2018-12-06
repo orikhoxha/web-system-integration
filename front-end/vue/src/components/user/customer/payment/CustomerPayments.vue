@@ -73,13 +73,14 @@
 </template>
 
 <script>
-    /* Don't include cvc and the whole card number for security purpose, it gets processed in the db */
     import CustomerPayment from './CustomerPayment.vue';
     export default {
         components: {
                 appUserPayment: CustomerPayment
         },
 
+
+        /* Initialize form data for card */
         data(){
             return {
                 cardNumber: '',
@@ -89,6 +90,8 @@
             }
         },
 
+
+        /* Get all payments from the vuex store before the vue component is created */
         beforeCreate(){
             this.$store.dispatch('initPayments');
         },
@@ -98,6 +101,8 @@
                 return this.$store.getters.userPayments;
             }
         },
+
+        /* Prevent default submit. Add the payment to the vuex store */
         methods: {
             onSubmit(){
                 const formData = {

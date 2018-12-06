@@ -13,19 +13,8 @@
     import utils from '../../utils.js';
     export default {
 
-        /*data() {
-            return {
-                departments: [
-                    {name: 'Meat', subDepartments: ['Chicken','Beef','Fish']},
-                    {name: 'Cheese', subDepartments: ['Pervelon','Swiss','Feta']},
-                    {name: 'Drinks', subDepartments: ['Cocacola','Fanta','Pepsi']},
-                    {name: 'Meat', subDepartments: ['Chicken','Beef','Fish']},
-                    {name: 'Meat', subDepartments: ['Chicken','Beef','Fish']},
-                ]
-            }
-        },*/
-
         computed: {
+            /* Get the departments, and group by in the Utils.js */
             departments(){
                 //return this.$store.getters.departmentsGroupByMainDepartment;
                 return utils.groupBy(this.$store.getters.departments, 'mainDepartment');

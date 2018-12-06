@@ -38,6 +38,8 @@
 <script>
     export default {
 
+
+        /* Initialize form data */
         data() {
             return {
                 name: '',
@@ -47,6 +49,7 @@
             }
         },
 
+        /* Prevent default submit. Send the data to the vuex store, further to the user register service*/
         methods: {
             onSubmit() {
                 const formData = {
@@ -56,19 +59,17 @@
                     password: this.password
                 };
 
-                this.$awn.su
-
+                /* Effect of delaying the user getting in the app till the account is created */
                 setTimeout(() =>{
                     console.log("execute now");
                     this.$store.dispatch('registerUser', formData);
                     this.$router.push("/");
                 }, 3000);
 
-                /*this.$store.dispatch('registerUser', formData);
-                this.$router.push("/");*/
             }
         },
 
+        /* Remove the header from the register page */
         beforeCreate(){
             this.$store.dispatch("changeHeader", false);
         },

@@ -25,6 +25,7 @@
         },
 
         methods: {
+            /* Submit the department to the vuex store */
             onSubmit() {
                 const formData = {mainDepartment: this.mainDepartment, name: this.name};
                 this.$store.dispatch('addDepartment',formData);

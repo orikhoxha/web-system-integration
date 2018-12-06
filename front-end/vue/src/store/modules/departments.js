@@ -5,6 +5,9 @@ const state = {
     departments: []
 };
 
+
+
+/* Set the department array accordingly */
 const mutations = {
     'SET_DEPARTMENTS' (state,departments) {
         state.departments = departments;
@@ -15,12 +18,9 @@ const mutations = {
             department
         })
     },
-    /*'DELETE_STOCK' (state, {id}){
-        const record = state.items.find(element => element.id === id);
-        state.items.splice(state.items.indexOf(record), 1);
-    }*/
 };
 
+/* Set department by calling the REST API-s */
 const actions = {
     initDepartments: ({commit}) => {
         DepartmentService.getDepartments()
@@ -37,6 +37,8 @@ const actions = {
     }
 };
 
+
+/* Allow accees to  the departments */
 const getters = {
     departments: state => {
         return state.departments;

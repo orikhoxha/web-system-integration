@@ -12,6 +12,7 @@
             appItem: Item
         },
 
+        /* Get the items from the vuex store */
         computed: {
             items(){
                 return this.$store.getters.items;

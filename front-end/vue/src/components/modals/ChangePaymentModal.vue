@@ -45,6 +45,8 @@
 </template>
 <script>
     export default {
+
+        /* Initialize the form data. Set the type to default 'VISA' */
         data() {
             return {
                 type: 'VISA',
@@ -54,6 +56,9 @@
                 holderName: ''
             }
         },
+
+
+        /* Prevent default submit. Send the data to the vuex store, further to the payment service API. */
         methods: {
             onSubmit() {
                 const formData = {

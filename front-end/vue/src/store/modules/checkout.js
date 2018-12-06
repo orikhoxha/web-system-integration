@@ -7,6 +7,7 @@ const state = {
     checkoutPayment: {}
 };
 
+/* Set the date, time, shippingAddress, checkoutPayment accordingly */
 const mutations = {
     'SET_DATE' (state,date) {
         state.date = date;
@@ -28,24 +29,10 @@ const mutations = {
         CheckoutService.postCheckout(checkout)
     }
 
-   /* 'ADD_PAYMENT' (state, payment) {
-        console.log(payment);
-        state.userPayments.push({
-            payment
-        })
-    },*/
-   /* 'SET_PAYMENT_SELECTED'(state,id){
-        const record = state.userPayments.find(element => element.id === id).id;
-        state.userPaymentSelected = record;
-        console.log('state.userPaymentSelected: ' + state.userPaymentSelected);
-    },*/
-    /*'DELETE_PAYMENT' (state){
-        const record = state.userPayments.find(element => element.id === state.userPaymentSelected.id);
-        state.userPayments.splice(state.userPayments.indexOf(record), 1);
-        state.userPaymentSelected = '';
-    }*/
 };
 
+
+/* Set the date, time, shippingAddress, checkoutPayment by calling the REST API-s */
 const actions = {
     setDate({commit}, date) {
         commit('SET_DATE', date);
@@ -64,20 +51,10 @@ const actions = {
     checkoutOrder({commit}, checkout){
         commit('CHECKOUT_ORDER', checkout)
     }
-
-   /* deletePayment({commit}){
-        console.log('Deleting the: ' +  state.userPaymentSelected);
-        UserPaymentsService.deleteUserPayment(state.userPaymentSelected).then(res => {
-            console.log(res);
-            commit('DELETE_PAYMENT');
-        });
-    },*/
-
-    /*paymentSelected({commit}, id){
-        commit('SET_PAYMENT_SELECTED', id);
-    }*/
 };
 
+
+/* Allow accees to  the date, time, shippingAddress, checkoutPayment */
 const getters = {
     checkoutDate: state => {
         return state.date;

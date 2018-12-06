@@ -41,7 +41,10 @@
     import ChangeAddressModal from '../modals/ChangeAddressModal.vue';
     import Utils from '../../utils.js';
 
+
     export default {
+
+        /* days, hours array initialized */
         data() {
             return {
                 days: [],
@@ -49,6 +52,7 @@
             }
         },
 
+        /* Get shipping address from the vuex getter */
         computed: {
             shippingAddress(){
                 return this.$store.getters.checkoutShippingAddress;
@@ -56,10 +60,13 @@
         },
 
         methods: {
+            /* Go to the checkoutfinal router */
             checkoutFinal() {
                 this.$router.push('/checkoutFinal');
             },
 
+
+            /*Set hours and days */
             /* Util */
             setHours() {
                 this.hours = Utils.setHours();
@@ -71,11 +78,15 @@
             },
         },
 
+
+        /* Call methods when component mounted */
         created() {
             this.setDays();
             this.setHours();
         },
 
+
+        /*Included components */
         components: {
             appCheckoutDate: CheckoutDate,
             appCheckoutTime: CheckoutTime,

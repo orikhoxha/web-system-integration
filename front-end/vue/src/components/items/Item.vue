@@ -31,6 +31,7 @@
         props: ['item'],
 
         methods: {
+            /* Add the item selected to the cart.Send the form to the vuex store */
             addToCart(){
                 const theItem = {
                     itemId: this.item.id,

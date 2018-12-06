@@ -1,5 +1,7 @@
 import Api from '../Api.js'
 import  axios from 'axios';
+
+/* Department Service. Makes REST Calls to backend */
 export default {
     getDepartments(){
         return Api().get('/departments/');
@@ -18,14 +20,4 @@ export default {
         })
     },
 
-    /*postDepartmentImage(image, id){
-        const formData = new FormData();
-        formData.append("file", image);
-        //formData.append('imageName', id + '_' + image.filename);
-        //const headers = {'content-type': 'multipart/form-data'};
-        //Api().post('/Departments/file/upload', formData);
-        axios.post('http://localhost:8082/api/departments/file/upload', formData, {
-            headers: {'Content-Type': 'multipart/form-data'}
-        })
-    }*/
 }

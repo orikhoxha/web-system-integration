@@ -19,7 +19,7 @@
     import Utils from '../../../../utils.js';
     export default {
 
-
+        /* Initialize the data for the date and time of the shipping */
         data() {
             return {
                 shippingDateTime: this.order.shippingDate + " between " + this.order.shippingTime
@@ -27,6 +27,7 @@
         },
 
         props: ['order'],
+
         components: {
             appCustomerOrderItem: CustomerOrderItem,
             appCustomerOrderPrice: CustomerOrderPrice,
@@ -34,7 +35,7 @@
         },
 
 
-
+        /* Convert the unix to date date */
         computed: {
             convertTime(){
                 return Utils.convertUnixTime(this.order.date);

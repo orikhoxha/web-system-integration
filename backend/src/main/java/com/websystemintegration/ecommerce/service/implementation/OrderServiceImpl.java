@@ -33,6 +33,11 @@ public class OrderServiceImpl implements OrderService{
     }
 
     @Override
+    public Order save(Order order) {
+        return null;
+    }
+
+    @Override
     public List<Order> getUserOrders(User user) {
         return orderRepository.findOrdersByUser(user);
     }

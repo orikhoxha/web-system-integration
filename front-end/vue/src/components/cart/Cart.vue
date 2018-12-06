@@ -31,6 +31,8 @@
           appCartItem: CartItem
         },
 
+
+        /* Get cart items info from vuex getters */
         computed: {
             cartItems(){
                 return this.$store.getters.cartItemList;
@@ -45,6 +47,7 @@
             }
         },
 
+        /* Go to the checkout router */
         methods: {
             checkout() {
                 this.$router.push('/checkout');
