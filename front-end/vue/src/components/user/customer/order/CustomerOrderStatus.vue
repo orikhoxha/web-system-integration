@@ -3,7 +3,7 @@
         <div class="row order-status">
             <div class="col-md-3">
                 <h3 class="arrives-by-label">Arrives By</h3>
-                <span class="date-time-arrives">Tue, Oct 3  09:00 - 10:00 am</span>
+                <span class="date-time-arrives">{{arrivesBy}}</span>
             </div>
             <div class="col-md-9">
                 <div class="row">
@@ -37,7 +37,8 @@
 <script>
 
     export default {
-        props: ['orderStatus']
+        props: ['arrivesBy'],
+
     }
 </script>
 

@@ -29,8 +29,8 @@ const mutations = {
 };
 
 const actions = {
-    initPayments: ({commit}) => {
-        UserPaymentsService.getUserPayments()
+    initPayments: ({commit, getters}) => {
+        UserPaymentsService.getUserPayments(getters.userLoggedIn.id)
             .then(response => {
                 if(response.status === 200 && response.data) {
                     commit('SET_PAYMENTS', response.data);

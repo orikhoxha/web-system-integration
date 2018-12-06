@@ -1,9 +1,6 @@
 package com.websystemintegration.ecommerce.service.implementation;
 
-import com.websystemintegration.ecommerce.domain.CartItem;
-import com.websystemintegration.ecommerce.domain.Order;
-import com.websystemintegration.ecommerce.domain.Payment;
-import com.websystemintegration.ecommerce.domain.ShippingAddress;
+import com.websystemintegration.ecommerce.domain.*;
 import com.websystemintegration.ecommerce.repository.CartItemRepository;
 import com.websystemintegration.ecommerce.repository.OrderRepository;
 import com.websystemintegration.ecommerce.repository.PaymentRepository;
@@ -35,5 +32,8 @@ public class OrderServiceImpl implements OrderService{
         return orderRepository.save(order);
     }
 
-
+    @Override
+    public List<Order> getUserOrders(User user) {
+        return orderRepository.findOrdersByUser(user);
+    }
 }

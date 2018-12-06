@@ -35,5 +35,4 @@ public class DepartmentController {
         departmentService.save(department);
         return ResponseEntity.noContent().build();
     }
-
 }

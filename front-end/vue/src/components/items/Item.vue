@@ -6,14 +6,13 @@
                 <i class="fas fa-heart custom-heart"></i>
             </div>
             <router-link class="panel-body" style="cursor: pointer" tag="div" :to="{name: 'itemDetails', params:{id: item.id}}">
-                <img src="../../assets/sample_image_3.jpg" class="img-article">
+                <img :src="require('../../assets/sample_image_3.jpg')" class="img-article">
             </router-link>
             <div class="panel-footer">
                 <div class="row product-tile">
                     <div class="col-md-6 text-left">
                         <sup class="price-tile-currency-symbol">$</sup>
                         <span class="price-tile-whole-unit">{{item.price}}</span>
-                        <sup class="price-tile-partial-units">97</sup>
                     </div>
                     <div class="col-md-6 text-right">
                         <span>{{item.measurement}}gr</span>
@@ -40,7 +39,7 @@
                     description: this.item.description
                 };
                 this.$store.dispatch('addItemCart',theItem);
-            }
+            },
         }
     }
 </script>

@@ -43,6 +43,7 @@ public class ItemController {
 
     @GetMapping("/")
     public List<Item> getItemList(){
+
         return itemService.findAll();
     }
 

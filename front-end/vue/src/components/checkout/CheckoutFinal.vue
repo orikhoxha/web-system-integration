@@ -162,17 +162,18 @@
                     cartItemList: this.cartItems,
                     payment: this.checkoutPayment,
                     shippingAddress: this.checkoutAddress,
-                    shippingDate: this.checkoutDate.dayString +  " " +  this.checkoutDate.month +   " " + this.checkoutDate.dayInt +  " " +  this.checkoutDate.date ,
+                    shippingDate: this.checkoutDate.dayString +  " " +  this.checkoutDate.month +   " " + this.checkoutDate.dayInt ,
                     shippingTime: this.checkoutTime,
-                    user: this.userLoggedIn
+                    user: this.user
                 };
 
                 console.log(formData);
 
-                if(this.userLoggedIn === null){
+                if(this.user === null || this.user === undefined ){
+
                     this.$router.push("/login");
                 }else{
-                    console.log("The user: " + this.userLoggedIn );
+                    console.log("The user: " + this.user );
                     this.$store.dispatch('checkoutOrder', formData)
                 }
             }

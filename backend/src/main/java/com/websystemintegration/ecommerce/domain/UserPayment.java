@@ -24,6 +24,7 @@ public class UserPayment implements Serializable {
     private String holderName;
     private boolean defaultPayment;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="user_id")
     private User user;

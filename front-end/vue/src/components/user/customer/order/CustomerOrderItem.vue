@@ -5,10 +5,10 @@
                 <div class="image-container">
                     <img src="../../../../assets/sample_image.jpg" alt="" class="custom-image-order">
                 </div>
-                <span class="tile-image-quantity">{{item.quantity}}</span>
+                <span class="tile-image-quantity">{{cartItem.quantity}}</span>
             </div>
             <div class="order-footer">
-                <p>{{item.title}}</p>
+                <p>{{cartItem.description}}</p>
             </div>
         </div>
     </div>
@@ -16,7 +16,7 @@
 
 <script>
     export default {
-        props: ['item']
+        props: ['cartItem']
     }
 </script>
 

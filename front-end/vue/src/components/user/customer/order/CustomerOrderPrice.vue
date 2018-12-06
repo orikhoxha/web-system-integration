@@ -5,15 +5,7 @@
                 <span class="price-label">Subtotal</span>
             </div>
             <div class="col-md-4">
-                <span class="price">{{priceDetails.subtotal}}$</span>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-8">
-                <span class="price-label">Value Shipping</span>
-            </div>
-            <div class="col-md-4">
-                <span class="price">{{priceDetails.valueShipping}}$</span>
+                <span class="price">{{calculateSubtotal}}$</span>
             </div>
         </div>
         <div class="row">
@@ -21,7 +13,7 @@
                 <span class="price-label">Est.tax</span>
             </div>
             <div class="col-md-4">
-                <span class="price">{{priceDetails.estTax}}$</span>
+                <span class="price">{{6}}$</span>
             </div>
         </div>
         <hr>
@@ -38,7 +30,14 @@
 
 <script>
     export default {
-        props: ['priceDetails']
+        props: ['priceDetails'],
+
+
+        computed: {
+            calculateSubtotal(){
+                return (this.priceDetails * 0.94).toFixed(2);
+            }
+        }
     }
 </script>
 

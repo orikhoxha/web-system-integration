@@ -80,7 +80,40 @@ export default {
     formatTime(hour) {
         console.log("hour: " + hour);
         return hour + ':00-' + (hour + 1) + ':00';
-    }
+    },
 
+    convertUnixTime(unixtimestamp){
+
+        // Months array
+        const months_arr = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+        // Convert timestamp to milliseconds
+        const date = new Date(unixtimestamp*1000);
+
+
+        console.log(date);
+
+        // Year
+        const year = date.getFullYear();
+
+        // Month
+        const month = months_arr[date.getMonth()];
+
+        // Day
+        const day = date.getDate();
+
+        // Hours
+        const hours = date.getHours();
+
+        // Minutes
+        const minutes = "0" + date.getMinutes();
+
+        // Seconds
+        const seconds = "0" + date.getSeconds();
+
+        // Display date time in MM-dd-yyyy h:m:s format
+        return month+' '+day+', '+year;
+
+    }
 
 }

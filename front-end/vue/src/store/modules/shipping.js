@@ -16,7 +16,9 @@ const mutations = {
         })
     },
     'SET_SHIPPING_SELECTED'(state,id){
+
         const record = state.userShipping.find(element => element.id === id).id;
+        console.log("The record" + record);
         state.userShippingSelected = record;
         console.log('state.userShippingelected: ' + state.userShippingSelected);
     },
@@ -29,22 +31,22 @@ const mutations = {
 };
 
 const actions = {
-    initShippings: ({commit}) => {
-        userShippingService.getUserShippings()
+    initShippings: ({commit, getters}) => {
+        userShippingService.getUserShippings(getters.userLoggedIn.id)
             .then(response => {
                 if(response.status === 200 && response.data) {
                     commit('SET_SHIPPINGS', response.data);
                 }
             });
     },
-    addShipping({commit}, shipping) {
-        userShippingService.postUserShipping(shipping);
+    addShipping({commit, getters}, shipping) {
+        userShippingService.postUserShipping(shipping, getters.userLoggedIn.id);
         commit('ADD_SHIPPING', shipping);
     },
 
-    deleteShipping({commit}){
+    deleteShipping({commit, getters}){
         console.log('Deleting the: ' +  state.userShippingSelected);
-        userShippingService.deleteUserShipping(state.userShippingSelected).then(res => {
+        userShippingService.deleteUserShipping(state.userShippingSelected, getters.userLoggedIn.id).then(res => {
             console.log(res);
             commit('DELETE_SHIPPING');
         });

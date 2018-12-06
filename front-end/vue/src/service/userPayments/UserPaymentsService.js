@@ -2,8 +2,8 @@ import Api from '../Api.js'
 import  axios from 'axios';
 
 export default {
-    getUserPayments(){
-        return Api().get('/users/payments/')
+    getUserPayments(userId){
+        return Api().get('/users/' + userId + '/payments/');
     },
 
     getUserPayment(id) {

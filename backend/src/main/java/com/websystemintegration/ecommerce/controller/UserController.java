@@ -1,8 +1,10 @@
 package com.websystemintegration.ecommerce.controller;
 
+import com.websystemintegration.ecommerce.domain.Order;
 import com.websystemintegration.ecommerce.domain.User;
 import com.websystemintegration.ecommerce.domain.UserPayment;
 import com.websystemintegration.ecommerce.domain.UserShipping;
+import com.websystemintegration.ecommerce.service.OrderService;
 import com.websystemintegration.ecommerce.service.UserPaymentService;
 import com.websystemintegration.ecommerce.service.UserService;
 import com.websystemintegration.ecommerce.service.UserShippingService;
@@ -31,6 +33,9 @@ public class UserController {
     @Autowired
     private UserShippingService userShippingService;
 
+    @Autowired
+    private OrderService userOrders;
+
     @PostMapping(value = "/")
     public User addUser(@RequestBody User User) {
         return userService.save(User);
@@ -51,16 +56,16 @@ public class UserController {
         return userService.save(user);
     }
 
-    @GetMapping(value = "/payments")
-    public List<UserPayment> userPayments(){
-        User user = userService.findOne(new Long(1));
+    @GetMapping(value = "/{id}/payments")
+    public List<UserPayment> userPayments(@PathVariable Long id){
+        User user = userService.findOne(id);
         logger.info("User: " + user) ;
         return userPaymentService.findAll(user);
     }
 
-    @PostMapping(value = "/payments")
-    public void addUserPayment(@RequestBody UserPayment userPayment){
-        User user = userService.findOne(new Long(1));
+    @PostMapping(value = "/{id}/payments")
+    public void addUserPayment(@PathVariable Long id,@RequestBody UserPayment userPayment){
+        User user = userService.findOne(id);
         userPayment.setUser(user);
         userPaymentService.save(userPayment);
     }
@@ -71,16 +76,16 @@ public class UserController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @GetMapping(value = "/shipping")
-    public List<UserShipping> userShipping(){
-        User user = userService.findOne(new Long(1));
+    @GetMapping(value = "/{id}/shippings/")
+    public List<UserShipping> userShipping(@PathVariable Long id){
+        User user = userService.findOne(id);
         logger.info("User: " + user) ;
         return userShippingService.findAll(user);
     }
 
-    @PostMapping(value = "/shipping")
-    public void addUserShipping(@RequestBody UserShipping userShipping){
-        User user = userService.findOne(new Long(1));
+    @PostMapping(value = "/{id}/shippings/")
+    public void addUserShipping(@PathVariable Long id,@RequestBody UserShipping userShipping){
+        User user = userService.findOne(id);
         userShipping.setUser(user);
         userShippingService.save(userShipping);
     }
@@ -89,6 +94,13 @@ public class UserController {
     public ResponseEntity<?> deleteUserShipping(@PathVariable Long userId, @PathVariable Long userShippingId){
         userShippingService.removeUserShipping(userShippingId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping(value = "/{id}/orders/")
+    public List<Order> userOrders(@PathVariable Long id){
+        User user = userService.findOne(id);
+        logger.info("User: " + user) ;
+        return userOrders.getUserOrders(user);
     }
 
     @PostMapping(value = "/login")
