@@ -31,9 +31,9 @@
             <img src="../assets/logo.png" class="logo-header">
             <form class="form-inline center">
                 <div class="input-group text search">
-                    <input type="email" class="form-control" size="50" placeholder="Email Address" >
+                    <input type="email" class="form-control" size="50" placeholder="Enter Item" >
                     <div class="input-group-btn">
-                        <button type="button" class="btn btn-danger">Subscribe</button>
+                        <button type="button" class="btn btn-danger">Search</button>
                     </div>
                 </div>
             </form>
